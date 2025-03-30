@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>IFT3911 DM3 Équipe Golf</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+        .box {
+            background-color: #282C2F;
+            color: #ffffff;
+            margin: 0px -.099% .99% -.099%;
+            padding: .396% .495% .396% 1.1881%;
+            border-radius: 5px;
+        }
+        table {
+            border: outset 2px black;
+            border-collapse: collapse;
+        }
+
+        th {
+            border-bottom: double 2px black;
+        }
+
+        td {
+            border-bottom: solid 1px black;
+        }
+
+        .first_col {
+            border-right: double 2px black;
+        }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">
+            IFT 3911 - DM3 Équipe Golf
+        </h1>
+        <h2>
+            Information générale
+        </h2>
+        <p>
+            <span style="font-weight: bold;">Nom:</span>
+            Athavan Pathmanathan
+            <br>
+            <span style="font-weight: bold;">Matricule:</span>
+            20181966
+            <br>
+            <span style="font-weight: bold;">Courriel:</span>
+            athavan.pathmanathan@umontreal.ca
+            <br>
+            <span style="font-weight: bold;">temps mis:</span>
+            25 heures
+        </p>
+        <p>
+            <span style="font-weight: bold;">Nom:</span>
+            Rachida Toumi
+            <br>
+            <span style="font-weight: bold;">Matricule:</span>
+            20171874
+            <br>
+            <span style="font-weight: bold;">Courriel:</span>
+            rachida.toumi@umontreal.ca
+            <br>
+            <span style="font-weight: bold;">temps mis:</span>
+            25 heures
+        </p>
+        <p>
+            <span style="font-weight: bold;">Nom:</span>
+            Le Kinh Vi Phung
+            <br>
+            <span style="font-weight: bold;">Matricule:</span>
+            20178538
+            <br>
+            <span style="font-weight: bold;">Courriel:</span>
+            le.kinh.vi.phung@umontreal.ca
+            <br>
+            <span style="font-weight: bold;">temps mis:</span>
+            25 heures
+        </p>
+        <h2>
+            Distribution des tâches
+        </h2>
+        <p>
+            <span style="font-weight: bold;">Soumetteur: Athavan Pathmanathan</span>
+        </p>
+        <table cellpadding="7px">
+            <thead>
+                <tr>
+                    <th class="first_col">
+                        Tâche
+                    </th>
+                    <th>
+                        Athavan
+                    </th>
+                    <th>
+                        Rachida
+                    </th>
+                    <th>
+                        Vi
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="first_col">
+                        Patron de fabrique
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <!-- <tr>
+                <td class="first_col">
+                    Implémentation
+                </td>
+                <td>
+                    GUI (30%)
+                </td>
+                <td>
+                    Logique (70%)
+                </td>
+                <td>
+                    Logique (70%)
+                </td>
+            </tr> -->
+                <tr>
+                    <td class="first_col">
+                        Patron de commande
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Correction DM1
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                </tr>
+                <!-- <tr>
+                <td class="first_col">
+                    OCL
+                </td>
+                <td>
+                    (80%)
+                </td>
+                <td>
+                    (10%)
+                </td>
+                <td>
+                    (10%)
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Diagramme de paquets
+                </td>
+                <td>
+                    (33%)
+                </td>
+                <td>
+                    (33%)
+                </td>
+                <td>
+                    (33%)
+                </td>
+            </tr> -->
+            </tbody>
+        </table>
+        
+        <h1 class="box">Diagramme de classe du devoir 2</h1>
+        <img src="./Design/DiagramClass.svg" alt="diagramme de classe logiciel">
+        <h3>Diagrammes de séquence</h3>
+        <div class="mx-5">
+            <p>Par Vi</p>
+            <h4>Diagramme de séquence Paiement Reservation</h4>
+            <img src="./Design/SequenceDiagrams/PaiementReservation.svg" alt="Diagramme de séquence Paiement Reservation">
+            <br>
+            <br>
+            <h4>Réservation arrangement</h4>
+            <p>Par Rachida</p>
+            <img src="./Design/SequenceDiagrams/ReservationArrangement.svg" alt="Réservation arrangement">
+            <br>
+            <br>
+            <h4>Vérifier voyages (vols,trajets,itinéraires)</h4>
+            <p>Par Athavan</p>
+            <img src="./Design/SequenceDiagrams/Vérifier voyages (vols,trajets,itinéraires).svg" alt="Vérifier voyages (vols,trajets,itinéraires)">
+            <br>
+            <br>
+        </div>
+        <h3>Diagramme de paquets</h3>
+        <br>
+        <br>
+        <img src="./Design/DiagramPackage.svg" alt="Diagramme de paquets">
+        <br>
+        <br>
+
+        <h1 class="box">Tâche 1: Patrons de conception</h1>
+        <div>
+            <h3>Patron de fabriques</h3>
+            <img src="./Réseau de Pétri/Petri net.png" alt="image du model du réseau tunnel" class="img-fluid">
+            <p>Justification</p>
+            <h3>Patron de commande</h3>
+            <img src="./Réseau de Pétri/graphe_accessibilite.jpg" alt="image du graphe d'accessibilité" class="img-fluid">
+            <p>Justification</p>
+            
+             
+        </div>
+        <br>
+        <br>
+        
+        <!-- Bootstrap JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
