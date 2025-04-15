@@ -114,6 +114,20 @@
                         (0%)
                     </td>
                 </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron du Singleton
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
                 <!-- <tr>
                 <td class="first_col">
                     Implémentation
@@ -142,9 +156,24 @@
                         (0%)
                     </td>
                 </tr>
+
                 <tr>
                     <td class="first_col">
-                        Correction DM1
+                        Patron d'État
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron de l'observateur
                     </td>
                     <td>
                         (0%)
@@ -154,6 +183,62 @@
                     </td>
                     <td>
                         (100%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron du visiteur
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron de l'adaptateur
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron du décorateur
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Codage
+                    </td>
+                    <td>
+                        (33%)
+                    </td>
+                    <td>
+                        (33%)
+                    </td>
+                    <td>
+                        (33%)
                     </td>
                 </tr>
                 <!-- <tr>
@@ -213,15 +298,42 @@
         <img src="./Design/DiagramPackage.svg" alt="Diagramme de paquets">
         <br>
         <br>
-
+        <h1 class="box">Diagramme de classe Révisé</h1>
+        <img src="./Design/Diagramme de classe logiciel.svg" alt="diagramme de classe logiciel">
         <h1 class="box">Tâche 1: Patrons de conception</h1>
         <div>
-            <h3>Patron de fabriques</h3>
-            <img src="./Réseau de Pétri/Petri net.png" alt="image du model du réseau tunnel" class="img-fluid">
-            <p>Justification</p>
+            <h3>Patron de fabrique ET Singleton</h3>
+            <h4>Diagramme de classe</h4>
+            <p>Situé dans le côté gauche du diagramme de classe.</p>
+            <img src="./Design/Diagramme_classe_patron_fabrique.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
+            <h4>Diagramme de Séquence</h4>
+            <img src="./Design/SequenceDiagrams/Patron Fabrique incluant singleton.svg" alt="Diagramme de séquence pour patron de fabrique et singleton" class="img-fluid">
+            <p>Nous avons utilisé la variante Méthode de fabrication. Car nous n'avons pas de combinaisons de familles pour les entités de base dans notre application.</p>
+            <p>En regardant l'exemple présenté sur le diagramme de séquence ci-dessus, on voit que le Produit est une compagnie, le Produit Concret est une compagnie Aérienne.
+                Le créateur est CreateurCompagnie et le créateur concret CreateurCompagnieAerienne. 
+                On a la ligne de Train et la compagnie de Croisière comme unités conrètes qui suivent la même idée. 
+            </p>
+            <p>
+                Le patron de fabrique est aussi utilisée pareillement pour les moyens de transport et les voyages.
+            </p>   
+            <p>
+                En procédant de cette manière, on encapsule le processus de création de chaque élément et on la délègue uniquement à la fabrique.
+            </p>
+            <p>Vue que c'est la responsabilité de chaque fabrique de créer une nouvelle entité (Moyen de transport, Compagnie, Voyage), il est plus facile de lui intégrer un générateur de id suivant le patron du singleton. 
+                On s'assure que chaque id est généré selon la spécification pour chaque unité.</p>
+            <br><br>
+            <hr>
+
             <h3>Patron de commande</h3>
-            <img src="./Réseau de Pétri/graphe_accessibilite.jpg" alt="image du graphe d'accessibilité" class="img-fluid">
-            <p>Justification</p>
+            <h4>Diagramme de classe</h4>
+            <p>Situé dans le côté droit du diagramme de classe.</p>
+            <img src="./Design/Diagramme_classe_patron_commande.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
+            <h4>Diagramme de Séquence</h4>
+            <img src="./Design/SequenceDiagrams/Patron de Commande Modification Dates de voyage.svg" alt="image du graphe d'accessibilité" class="img-fluid">
+            <p>On a appliqué le Patron de commande pour les tâches de modification et de suppression de chaque type d'entité. 
+                La variante utilisée est le Undo-Redo qui permet de nous assurer de pouvoir revenir en arrière et de pouvoir annuler une opération effectuée.
+            </p>
+            <p>Vue que c'est seulement un Administrateur qui peut effectuer ses tâches, c'est le AdminView qui est l'invoquateur de ses commandes.</p>
             
              
         </div>
