@@ -1,0 +1,7 @@
+public enum PaquebotSectionType {
+	I,
+	O,
+	S,
+	F,
+	D
+}
