@@ -2,7 +2,7 @@ import Logiciel.*;
 
 public abstract class Etablissement {
 
-	private string code;
+	private String code;
 	private Ville ville;
 
 	public Ville getVille() {
@@ -13,7 +13,7 @@ public abstract class Etablissement {
 		this.ville = ville;
 	}
 
-	public string getCode() {
+	public String getCode() {
 		return this.code;
 	}
 
@@ -21,7 +21,7 @@ public abstract class Etablissement {
 	 * 
 	 * @param code
 	 */
-	public void setCode(string code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 

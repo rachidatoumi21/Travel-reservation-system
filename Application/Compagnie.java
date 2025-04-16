@@ -1,14 +1,15 @@
 /**
  * Type de compagnie: Aeroport, Port et Gare
  */
+import Logiciel.*;
 public abstract class Compagnie {
-
-	private string nom;
+	private CompagnieIdGenerator idGenerator = new CompagnieIdGenerator();
+	private String nom;
 	private float prix;
 	private String id;
 	private String idVoyageDebut;
 
-	public void setNom(string nom) {
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
@@ -40,11 +41,17 @@ public abstract class Compagnie {
 	 * 
 	 * @param prix
 	 * @param nom
-	 * @param idVoyageDébut
+	 * @param idVoyageDï¿½but
 	 */
-	public bool Compagnie(Float prix, String nom, String idVoyageDébut) {
-		// TODO - implement Compagnie.Compagnie
-		throw new UnsupportedOperationException();
+	public Compagnie(Float prix, String nom) {
+		this.setPrix(prix);
+		this.setNom(nom);
+		this.setIdVoyageDebut(idVoyageDebut);
+		this.setId(this.idGenerator.generateID());
+		this.nom = nom;
+		this.idVoyageDebut = idVoyageDebut;
+		// return true;
+		// throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -54,19 +61,19 @@ public abstract class Compagnie {
 	 * @param dateDep
 	 * @param dateArr
 	 */
-	public void obtenirDisponibilite(int dep, int arr, int dateDep, int dateArr) {
-		// TODO - implement Compagnie.obtenirDisponibilite
-		throw new UnsupportedOperationException();
-	}
+	// public void obtenirDisponibilite(int dep, int arr, int dateDep, int dateArr) {
+	// 	// TODO - implement Compagnie.obtenirDisponibilite
+	// 	throw new UnsupportedOperationException();
+	// }
 
 	/**
 	 * 
 	 * @param section
 	 * @param prix
 	 */
-	public void assignerPrix(Section section, float prix) {
-		// TODO - implement Compagnie.assignerPrix
-		throw new UnsupportedOperationException();
-	}
+	// public void assignerPrix(Section section, float prix) {
+	// 	// TODO - implement Compagnie.assignerPrix
+	// 	throw new UnsupportedOperationException();
+	// }
 
 }
