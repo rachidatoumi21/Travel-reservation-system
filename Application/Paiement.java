@@ -2,7 +2,7 @@ import Logiciel.*;
 
 public class Paiement implements PaymentAdaptateur {
 
-	private string transactionId;
+	private String transactionId;
 	private double montant;
 	private DateTime datePaiement;
 	private ModePaiment modePaiement;
@@ -17,7 +17,7 @@ public class Paiement implements PaymentAdaptateur {
 		throw new UnsupportedOperationException();
 	}
 
-	public string getTransactionId() {
+	public String getTransactionId() {
 		return this.transactionId;
 	}
 

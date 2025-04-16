@@ -2,10 +2,10 @@ package Logiciel;
 
 public abstract class User {
 
-	private string nom;
-	private string prenom;
-	private string userId;
-	private string courriel;
+	private String nom;
+	private String prenom;
+	private String userId;
+	private String courriel;
 	private boolean isAdmin;
 
 }

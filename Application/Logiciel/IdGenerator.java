@@ -2,15 +2,15 @@ package Logiciel;
 
 public abstract class IdGenerator {
 
-	private string lastID;
+	private String lastID;
 	private IdGenerator _instance;
 
-	public string generateID() {
+	public String generateID() {
 		// TODO - implement IdGenerator.generateID
 		throw new UnsupportedOperationException();
 	}
 
-	public MoyenTransportIDGenerator getInstance() {
+	public IdGenerator getInstance() {
 		// TODO - implement IdGenerator.getInstance
 		throw new UnsupportedOperationException();
 	}

@@ -126,7 +126,7 @@ public class Database implements IConsultController {
 	 * 
 	 * @param mes
 	 */
-	public string afficherMessage(string mes) {
+	public String afficherMessage(String mes) {
 		// TODO - implement Database.afficherMessage
 		throw new UnsupportedOperationException();
 	}
@@ -211,7 +211,7 @@ public class Database implements IConsultController {
 	 * @param dateDep
 	 * @param dateArr
 	 */
-	public List<Voyage> verifierDisponibiiteVoyage(string typeVoyage, Etablissement dep, Etablissement arr, DateTime dateDep, DateTime dateArr) {
+	public List<Voyage> verifierDisponibiiteVoyage(String typeVoyage, Etablissement dep, Etablissement arr, DateTime dateDep, DateTime dateArr) {
 		// TODO - implement Database.verifierDisponibiiteVoyage
 		throw new UnsupportedOperationException();
 	}
@@ -220,7 +220,7 @@ public class Database implements IConsultController {
 	 * 
 	 * @param userId
 	 */
-	public User findUser(string userId) {
+	public User findUser(String userId) {
 		// TODO - implement Database.findUser
 		throw new UnsupportedOperationException();
 	}
@@ -229,7 +229,7 @@ public class Database implements IConsultController {
 	 * 
 	 * @param code
 	 */
-	public Etablissement findEtablissement(string code) {
+	public Etablissement findEtablissement(String code) {
 		// TODO - implement Database.findEtablissement
 		throw new UnsupportedOperationException();
 	}
@@ -238,7 +238,7 @@ public class Database implements IConsultController {
 	 * 
 	 * @param compagnieId
 	 */
-	public Compagnie findCompagnie(string compagnieId) {
+	public Compagnie findCompagnie(String compagnieId) {
 		// TODO - implement Database.findCompagnie
 		throw new UnsupportedOperationException();
 	}
@@ -247,7 +247,7 @@ public class Database implements IConsultController {
 	 * 
 	 * @param id
 	 */
-	public MoyenTransport findMoyenTransport(string id) {
+	public MoyenTransport findMoyenTransport(String id) {
 		// TODO - implement Database.findMoyenTransport
 		throw new UnsupportedOperationException();
 	}

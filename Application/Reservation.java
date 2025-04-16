@@ -1,8 +1,8 @@
 public class Reservation {
 
 	private Client client;
-	private string numReservation;
-	private string statut;
+	private String numReservation;
+	private String statut;
 	private DateTime dateCreation;
 	private DateTime dateExpiration;
 	private DateTime datePaiement;
@@ -13,12 +13,12 @@ public class Reservation {
 	 * 
 	 * @param numReservation
 	 */
-	public Reservation getReservationDetails(string numReservation) {
+	public Reservation getReservationDetails(String numReservation) {
 		// TODO - implement Reservation.getReservationDetails
 		throw new UnsupportedOperationException();
 	}
 
-	public string getId() {
+	public String getId() {
 		// TODO - implement Reservation.getId
 		throw new UnsupportedOperationException();
 	}
@@ -32,7 +32,7 @@ public class Reservation {
 		return this.client;
 	}
 
-	public string getStatut() {
+	public String getStatut() {
 		return this.statut;
 	}
 
@@ -40,13 +40,13 @@ public class Reservation {
 		return this.dateExpiration;
 	}
 
-	public bool estExpirée() {
-		// TODO - implement Reservation.estExpirée
+	public booleanestExpirï¿½e() {
+		// TODO - implement Reservation.estExpirï¿½e
 		throw new UnsupportedOperationException();
 	}
 
-	public bool validerDisponibilité() {
-		// TODO - implement Reservation.validerDisponibilité
+	public booleanvaliderDisponibilitï¿½() {
+		// TODO - implement Reservation.validerDisponibilitï¿½
 		throw new UnsupportedOperationException();
 	}
 
@@ -82,7 +82,7 @@ public class Reservation {
 	 * @param modePaiement
 	 * @param infoCarte
 	 */
-	public void payerReservation(Client client, String numReservation, ModePaiement modePaiement, string infoCarte) {
+	public void payerReservation(Client client, String numReservation, ModePaiement modePaiement, String infoCarte) {
 		// TODO - implement Reservation.payerReservation
 		throw new UnsupportedOperationException();
 	}

@@ -21,7 +21,7 @@ public class AdminView extends View implements Observateur, Visiteur {
 	 * 
 	 * @param vol
 	 */
-	public string visitVol(Vol vol) {
+	public String visitVol(Vol vol) {
 		// TODO - implement AdminView.visitVol
 		throw new UnsupportedOperationException();
 	}
@@ -30,7 +30,7 @@ public class AdminView extends View implements Observateur, Visiteur {
 	 * 
 	 * @param trajet
 	 */
-	public string visitTrajet(Trajet trajet) {
+	public String visitTrajet(Trajet trajet) {
 		// TODO - implement AdminView.visitTrajet
 		throw new UnsupportedOperationException();
 	}
@@ -39,7 +39,7 @@ public class AdminView extends View implements Observateur, Visiteur {
 	 * 
 	 * @param itineraire
 	 */
-	public string visitItineraire(Itineraire itineraire) {
+	public String visitItineraire(Itineraire itineraire) {
 		// TODO - implement AdminView.visitItineraire
 		throw new UnsupportedOperationException();
 	}

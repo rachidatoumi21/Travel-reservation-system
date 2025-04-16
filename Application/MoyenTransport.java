@@ -1,6 +1,6 @@
 public abstract class MoyenTransport {
 
-	private string id;
+	private String id;
 	private Compagnie compagnie;
 
 }

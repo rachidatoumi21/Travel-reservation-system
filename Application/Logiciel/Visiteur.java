@@ -6,18 +6,18 @@ public interface Visiteur {
 	 * 
 	 * @param vol
 	 */
-	string visitVol(Vol vol);
+	String visitVol(Vol vol);
 
 	/**
 	 * 
 	 * @param trajet
 	 */
-	string visitTrajet(Trajet trajet);
+	String visitTrajet(Trajet trajet);
 
 	/**
 	 * 
 	 * @param itineraire
 	 */
-	string visitItineraire(Itineraire itineraire);
+	String visitItineraire(Itineraire itineraire);
 
 }

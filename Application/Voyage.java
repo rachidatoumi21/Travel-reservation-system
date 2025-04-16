@@ -1,9 +1,9 @@
 /**
- * Type de voyage: Vol, itinéraire, trajet
+ * Type de voyage: Vol, itinï¿½raire, trajet
  */
 public abstract class Voyage {
 
-	MoyenTransport véhicule;
+	MoyenTransport vï¿½hicule;
 	private String voyageId;
 	private int depart;
 	private int destination;
@@ -59,18 +59,18 @@ public abstract class Voyage {
 		return this.compagnie;
 	}
 
-	public DateTime getDateDépart() {
-		// TODO - implement Voyage.getDateDépart
+	public DateTime getDateDï¿½part() {
+		// TODO - implement Voyage.getDateDï¿½part
 		throw new UnsupportedOperationException();
 	}
 
-	public DateTime getDateArrivée() {
-		// TODO - implement Voyage.getDateArrivée
+	public DateTime getDateArrivï¿½e() {
+		// TODO - implement Voyage.getDateArrivï¿½e
 		throw new UnsupportedOperationException();
 	}
 
-	public double getDuréeHeures() {
-		// TODO - implement Voyage.getDuréeHeures
+	public double getDurï¿½eHeures() {
+		// TODO - implement Voyage.getDurï¿½eHeures
 		throw new UnsupportedOperationException();
 	}
 

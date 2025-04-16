@@ -4,7 +4,7 @@ public class VoyageIdGenerator extends IdGenerator {
 
 	private VoyageIdGenerator _instance;
 
-	public string generateID() {
+	public String generateID() {
 		// TODO - implement VoyageIdGenerator.generateID
 		throw new UnsupportedOperationException();
 	}

@@ -6,7 +6,7 @@ public interface IConsultController {
 	 * 
 	 * @param mes
 	 */
-	string afficherMessage(string mes);
+	String afficherMessage(String mes);
 
 	/**
 	 * 
@@ -67,6 +67,6 @@ public interface IConsultController {
 	 * @param dateDep
 	 * @param dateArr
 	 */
-	List<Voyage> verifierDisponibiiteVoyage(string typeVoyage, Etablissement dep, Etablissement arr, DateTime dateDep, DateTime dateArr);
+	List<Voyage> verifierDisponibiiteVoyage(String typeVoyage, Etablissement dep, Etablissement arr, DateTime dateDep, DateTime dateArr);
 
 }

@@ -1,6 +1,6 @@
 public class Cabin extends Arrangement {
 
-	private string numeroCabin;
+	private String numeroCabin;
 	private int capacite;
 	private EtatSiege currentState;
 

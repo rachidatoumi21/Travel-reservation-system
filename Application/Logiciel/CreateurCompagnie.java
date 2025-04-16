@@ -13,9 +13,9 @@ public abstract class CreateurCompagnie {
 	 * 
 	 * @param prix
 	 * @param nom
-	 * @param idVoyageDébut
+	 * @param idVoyageDï¿½but
 	 */
-	public Compagnie creerCompagnie(Float prix, String nom, String idVoyageDébut) {
+	public Compagnie creerCompagnie(Float prix, String nom, String idVoyageDï¿½but) {
 		// TODO - implement CreateurCompagnie.creerCompagnie
 		throw new UnsupportedOperationException();
 	}

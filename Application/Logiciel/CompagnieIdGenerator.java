@@ -4,7 +4,7 @@ public class CompagnieIdGenerator extends IdGenerator {
 
 	private CompagnieIdGenerator _instance;
 
-	public string generateID() {
+	public String generateID() {
 		// TODO - implement CompagnieIdGenerator.generateID
 		throw new UnsupportedOperationException();
 	}

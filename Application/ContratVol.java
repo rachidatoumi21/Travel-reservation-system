@@ -1,5 +1,5 @@
 public class ContratVol {
 
-	private String idVolLettresDébut;
+	private String idVolLettresDï¿½but;
 
 }

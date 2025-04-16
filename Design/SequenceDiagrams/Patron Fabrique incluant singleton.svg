@@ -302,7 +302,7 @@
     ><g font-size="11px" transform="translate(913,306)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
     ><rect x="0" width="158" height="15" y="0" clip-path="url(#clipPath37)" stroke="none"
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath37)" stroke="none"
-      >3.1.1.1: generateID() : string</text
+      >3.1.1.1: generateID() : String</text
     ></g
     ><g font-size="11px" transform="translate(906,94)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
     ><rect x="0" width="89" height="15" y="0" clip-path="url(#clipPath38)" stroke="none"

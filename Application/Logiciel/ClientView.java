@@ -2,9 +2,9 @@ package Logiciel;
 
 public class ClientView extends View implements Observateur, Visiteur {
 
-	private List<string> clientMenuOptions;
-	private string selectedOption;
-	private string errorMessage;
+	private List<String> clientMenuOptions;
+	private String selectedOption;
+	private String errorMessage;
 
 	public void displayMenu() {
 		// TODO - implement ClientView.displayMenu
@@ -25,7 +25,7 @@ public class ClientView extends View implements Observateur, Visiteur {
 	 * 
 	 * @param vol
 	 */
-	public string visitVol(Vol vol) {
+	public String visitVol(Vol vol) {
 		// TODO - implement ClientView.visitVol
 		throw new UnsupportedOperationException();
 	}
@@ -34,7 +34,7 @@ public class ClientView extends View implements Observateur, Visiteur {
 	 * 
 	 * @param trajet
 	 */
-	public string visitTrajet(Trajet trajet) {
+	public String visitTrajet(Trajet trajet) {
 		// TODO - implement ClientView.visitTrajet
 		throw new UnsupportedOperationException();
 	}
@@ -43,7 +43,7 @@ public class ClientView extends View implements Observateur, Visiteur {
 	 * 
 	 * @param itineraire
 	 */
-	public string visitItineraire(Itineraire itineraire) {
+	public String visitItineraire(Itineraire itineraire) {
 		// TODO - implement ClientView.visitItineraire
 		throw new UnsupportedOperationException();
 	}

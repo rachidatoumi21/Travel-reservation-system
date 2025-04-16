@@ -2,7 +2,7 @@ package Logiciel;
 
 public class CommandSuppressionVoyage implements Command {
 
-	private string idVoyage;
+	private String idVoyage;
 	private Map<String, Voyage> voyages;
 
 	/**
@@ -10,7 +10,7 @@ public class CommandSuppressionVoyage implements Command {
 	 * @param idVoyage
 	 * @param voyages
 	 */
-	public Map<String, Voyage> supprimerVoyage(string idVoyage, Map<String, Voyage> voyages) {
+	public Map<String, Voyage> supprimerVoyage(String idVoyage, Map<String, Voyage> voyages) {
 		// TODO - implement CommandSuppressionVoyage.supprimerVoyage
 		throw new UnsupportedOperationException();
 	}

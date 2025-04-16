@@ -3,7 +3,7 @@ package Logiciel;
 public class CommandModifierNomCompagnie implements Command {
 
 	private Compagnie compagnie;
-	private string nom;
+	private String nom;
 
 	public void redo() {
 		// TODO - implement CommandModifierNomCompagnie.redo
@@ -20,7 +20,7 @@ public class CommandModifierNomCompagnie implements Command {
 	 * @param compagnie
 	 * @param nom
 	 */
-	public void modifierNom(Compagnie compagnie, string nom) {
+	public void modifierNom(Compagnie compagnie, String nom) {
 		// TODO - implement CommandModifierNomCompagnie.modifierNom
 		throw new UnsupportedOperationException();
 	}

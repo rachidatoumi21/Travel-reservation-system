@@ -4,7 +4,7 @@ public class MoyenTransportIDGenerator extends IdGenerator {
 
 	private MoyenTransportIDGenerator _instance;
 
-	public string generateID() {
+	public String generateID() {
 		// TODO - implement MoyenTransportIDGenerator.generateID
 		throw new UnsupportedOperationException();
 	}
