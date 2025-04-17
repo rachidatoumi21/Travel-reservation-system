@@ -1,9 +1,15 @@
 package Logiciel;
 
+import Application.Compagnie;
+import Application.MoyenTransport;
+
 public abstract class CreateurMoyenTransport {
+	protected MoyenTransportIDGenerator idGenerator = new MoyenTransportIDGenerator();
+	
+	protected abstract MoyenTransport fabrique(Compagnie compagnie);
 
-	protected abstract MoyenTransport fabrique();
-
-	public abstract MoyenTransport creerMoyenTransport();
+	public MoyenTransport creerMoyenTransport(Compagnie compagnie) {
+		return fabrique(compagnie);
+	}
 
 }

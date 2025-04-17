@@ -1,15 +1,16 @@
 package Logiciel;
 
+import Application.Compagnie;
+import Application.Cruiseship;
+
 public class CreateurCruiseship extends CreateurMoyenTransport {
 
-	protected MoyenTransport fabrique() {
-		// TODO - implement CreateurCruiseship.fabrique
-		throw new UnsupportedOperationException();
+	protected Cruiseship fabrique(Compagnie compagnie) {
+		Cruiseship cruiseship = new Cruiseship(compagnie);
+		cruiseship.setId(idGenerator.generateID());
+		return cruiseship;
 	}
 
-	public MoyenTransport creerMoyenTransport() {
-		// TODO - implement CreateurCruiseship.creerMoyenTransport
-		throw new UnsupportedOperationException();
-	}
+	
 
 }

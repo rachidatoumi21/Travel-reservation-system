@@ -1,15 +1,16 @@
 package Logiciel;
 
+import Application.Compagnie;
+import Application.Train;
+
 public class CreateurTrain extends CreateurMoyenTransport {
 
-	protected MoyenTransport fabrique() {
-		// TODO - implement CreateurTrain.fabrique
-		throw new UnsupportedOperationException();
+	protected Train fabrique(Compagnie compagnie) {
+		Train train = new Train(compagnie);
+		train.setId(idGenerator.generateID());
+		return train;
 	}
 
-	public MoyenTransport creerMoyenTransport() {
-		// TODO - implement CreateurTrain.creerMoyenTransport
-		throw new UnsupportedOperationException();
-	}
+	
 
 }

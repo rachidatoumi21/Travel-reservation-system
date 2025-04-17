@@ -1,15 +1,15 @@
 package Logiciel;
 
+import Application.Airplane;
+import Application.Compagnie;
+
 public class CreateurAirplane extends CreateurMoyenTransport {
 
-	protected MoyenTransport fabrique() {
-		// TODO - implement CreateurAirplane.fabrique
-		throw new UnsupportedOperationException();
+	protected Airplane fabrique(Compagnie compagnie) {
+		Airplane airplane = new Airplane(compagnie);
+		airplane.setId(idGenerator.generateID());
+		return airplane;
 	}
 
-	public MoyenTransport creerMoyenTransport() {
-		// TODO - implement CreateurAirplane.creerMoyenTransport
-		throw new UnsupportedOperationException();
-	}
 
 }
