@@ -3,15 +3,18 @@ package Logiciel;
 public class MoyenTransportIDGenerator extends IdGenerator {
 
 	private MoyenTransportIDGenerator _instance;
+	private String lastID = "T0"; // ID de départ pour les moyens de transport
 
 	public String generateID() {
-		// TODO - implement MoyenTransportIDGenerator.generateID
-		throw new UnsupportedOperationException();
+		char premiereLettre = lastID.charAt(0);
+		int partieNumerique = Integer.parseInt(lastID.substring(1));
+		partieNumerique++;
+		lastID = "" + premiereLettre + partieNumerique;
+		return lastID;
 	}
 
 	public MoyenTransportIDGenerator getInstance() {
-		// TODO - implement MoyenTransportIDGenerator.getInstance
-		throw new UnsupportedOperationException();
+		return _instance;
 	}
 
 }

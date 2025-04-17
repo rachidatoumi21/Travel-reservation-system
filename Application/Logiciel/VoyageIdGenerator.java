@@ -2,16 +2,18 @@ package Logiciel;
 
 public class VoyageIdGenerator extends IdGenerator {
 
-	private VoyageIdGenerator _instance;
+	private static VoyageIdGenerator _instance = new VoyageIdGenerator();
+	private String lastID = "0";
 
 	public String generateID() {
-		// TODO - implement VoyageIdGenerator.generateID
-		throw new UnsupportedOperationException();
+		int nombreVoyages = Integer.parseInt(lastID);
+		nombreVoyages++;
+		lastID = String.valueOf(nombreVoyages);
+		return lastID;
 	}
 
 	public VoyageIdGenerator getInstance() {
-		// TODO - implement VoyageIdGenerator.getInstance
-		throw new UnsupportedOperationException();
+		return _instance;
 	}
 
 }
