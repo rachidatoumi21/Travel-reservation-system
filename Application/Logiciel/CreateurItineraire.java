@@ -1,15 +1,31 @@
 package Logiciel;
 
+import java.time.LocalTime;
+
+import Application.Compagnie;
+import Application.CompagnieCroisiere;
+import Application.Etablissement;
+import Application.Itineraire;
+import Application.Port;
+
 public class CreateurItineraire extends CreateurVoyage {
 
-	public Voyage fabrique() {
-		// TODO - implement CreateurItineraire.fabrique
-		throw new UnsupportedOperationException();
+	public Itineraire fabrique(Etablissement depart, Etablissement destination, LocalTime dateDep, LocalTime dateArr, Compagnie c) {
+		if (!(depart instanceof Port) || !(destination instanceof Port)) {
+			throw new IllegalArgumentException("Les établissements doivent être des ports.");
+		}
+		if (!(c instanceof CompagnieCroisiere)) {
+			throw new IllegalArgumentException("La compagnie doit être une compagnie de croisière.");
+		}
+		Port departPort = (Port) depart;
+		Port destinationPort = (Port) destination;
+		CompagnieCroisiere compagnieCroisiere = (CompagnieCroisiere) c;
+		Itineraire itineraire = new Itineraire(departPort, destinationPort, dateDep, dateArr, compagnieCroisiere);
+		
+		return itineraire;
+	
 	}
 
-	public Voyage creerVoyage() {
-		// TODO - implement CreateurItineraire.creerVoyage
-		throw new UnsupportedOperationException();
-	}
+	
 
 }
