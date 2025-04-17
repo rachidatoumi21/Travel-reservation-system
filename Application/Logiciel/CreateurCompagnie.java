@@ -1,7 +1,8 @@
 package Logiciel;
-
+import Application.Compagnie;
+// Removed duplicate import of Logiciel.Compagnie
 public abstract class CreateurCompagnie {
-
+	protected CompagnieIdGenerator idGen = new CompagnieIdGenerator();
 	/**
 	 * 
 	 * @param prix
@@ -15,9 +16,8 @@ public abstract class CreateurCompagnie {
 	 * @param nom
 	 * @param idVoyageD�but
 	 */
-	public Compagnie creerCompagnie(Float prix, String nom, String idVoyageD�but) {
-		// TODO - implement CreateurCompagnie.creerCompagnie
-		throw new UnsupportedOperationException();
+	public Compagnie creerCompagnie(Float prix, String nom){
+		return fabrique(prix, nom);
 	}
 
 }

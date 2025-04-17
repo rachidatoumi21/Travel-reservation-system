@@ -1,5 +1,7 @@
 package Logiciel;
 
+import Application.TrainLigne;
+
 public class CreateurTrainLigne extends CreateurCompagnie {
 
 	/**
@@ -7,9 +9,11 @@ public class CreateurTrainLigne extends CreateurCompagnie {
 	 * @param prix
 	 * @param nom
 	 */
-	protected Compagnie fabrique(Float prix, String nom) {
-		// TODO - implement CreateurTrainLigne.fabrique
-		throw new UnsupportedOperationException();
+	protected TrainLigne fabrique(Float prix, String nom) {
+		TrainLigne compagnie = new TrainLigne(prix, nom);
+		compagnie.setId(idGen.generateID());
+		compagnie.setIdVoyageDebut(idGen.generateIDPrefixVoyage());
+		return compagnie;
 	}
 
 }

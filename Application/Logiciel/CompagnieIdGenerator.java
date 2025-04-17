@@ -25,7 +25,7 @@ public class CompagnieIdGenerator extends IdGenerator {
         return lastID;
 	}
 
-	private String generateIDPrefixVoyage() {
+	public String generateIDPrefixVoyage() {
 		char premiereLettre = idPrefixVoyage.charAt(0);
 		char deuxiemeLettre = idPrefixVoyage.charAt(1);
 		deuxiemeLettre++;

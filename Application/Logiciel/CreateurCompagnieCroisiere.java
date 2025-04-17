@@ -1,5 +1,7 @@
 package Logiciel;
 
+import Application.CompagnieCroisiere;
+
 public class CreateurCompagnieCroisiere extends CreateurCompagnie {
 
 	/**
@@ -7,9 +9,11 @@ public class CreateurCompagnieCroisiere extends CreateurCompagnie {
 	 * @param prix
 	 * @param nom
 	 */
-	protected Compagnie fabrique(Float prix, String nom) {
-		// TODO - implement CreateurCompagnieCroisiere.fabrique
-		throw new UnsupportedOperationException();
+	protected CompagnieCroisiere fabrique(Float prix, String nom) {
+		CompagnieCroisiere compagnie = new CompagnieCroisiere(prix, nom);
+		compagnie.setId(idGen.generateID());
+		compagnie.setIdVoyageDebut(idGen.generateIDPrefixVoyage());
+		return compagnie;
 	}
 
 }
