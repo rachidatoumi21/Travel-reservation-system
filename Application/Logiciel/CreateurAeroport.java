@@ -1,14 +1,17 @@
 package Logiciel;
 
+import Application.Aeroport;
+
 public class CreateurAeroport extends CreateurEtablissement {
 
 	/**
 	 * 
 	 * @param ville
 	 */
-	protected Etablissement fabrique(Ville ville) {
-		// TODO - implement CreateurAeroport.fabrique
-		throw new UnsupportedOperationException();
+	protected Aeroport fabrique(String nom, Ville ville) {
+		Aeroport aeroport = new Aeroport(nom, ville);
+		aeroport.setCode(idGenerator.generateID());
+		return aeroport;
 	}
 
 }

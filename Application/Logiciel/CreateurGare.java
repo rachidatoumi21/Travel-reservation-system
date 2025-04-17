@@ -1,14 +1,17 @@
 package Logiciel;
 
+import Application.Gare;
+
 public class CreateurGare extends CreateurEtablissement {
 
 	/**
 	 * 
 	 * @param ville
 	 */
-	protected Etablissement fabrique(Ville ville) {
-		// TODO - implement CreateurGare.fabrique
-		throw new UnsupportedOperationException();
+	protected Gare fabrique(String nom, Ville ville) {
+		Gare gare = new Gare(nom, ville);
+		gare.setCode(idGenerator.generateID());
+		return gare;
 	}
 
 }
