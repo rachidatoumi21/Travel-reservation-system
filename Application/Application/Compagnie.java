@@ -9,6 +9,10 @@ public abstract class Compagnie {
 	private String id;
 	private String idVoyageDebut;
 
+	public String getNom() {
+		return this.nom;
+	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
@@ -41,7 +45,7 @@ public abstract class Compagnie {
 	 * 
 	 * @param prix
 	 * @param nom
-	 * @param idVoyageD�but
+	 * @param idVoyageDebut
 	 */
 	public Compagnie(Float prix, String nom) {
 		this.setPrix(prix);

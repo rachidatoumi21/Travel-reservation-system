@@ -1,23 +1,16 @@
 package Logiciel;
 
+import Application.Itineraire;
+import Application.Trajet;
+import Application.Vol;
+
 public interface Visiteur {
 
-	/**
-	 * 
-	 * @param vol
-	 */
+	
 	String visitVol(Vol vol);
 
-	/**
-	 * 
-	 * @param trajet
-	 */
 	String visitTrajet(Trajet trajet);
 
-	/**
-	 * 
-	 * @param itineraire
-	 */
 	String visitItineraire(Itineraire itineraire);
 
 }

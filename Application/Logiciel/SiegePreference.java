@@ -1,9 +1,6 @@
 package Logiciel;
 
 public enum SiegePreference {
-	;
-
-	int AILE;
-	int FENETRE;
-
+	AILE,
+	FENETRE
 }

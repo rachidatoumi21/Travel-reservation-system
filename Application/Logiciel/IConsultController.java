@@ -1,5 +1,18 @@
 package Logiciel;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import Application.Voyage;
+import Application.Vol;
+import Application.Trajet;
+import Application.Itineraire;
+import Application.Etablissement;
+import Application.Aeroport;
+import Application.Gare;
+import Application.Port;
+import Application.Arrangement;
+
 public interface IConsultController {
 
 	/**
@@ -15,7 +28,7 @@ public interface IConsultController {
 	 * @param dateDepart
 	 * @param dateArrivee
 	 */
-	List<Vol> chercherVol(Aeroport aeroportDepart, Aeroport aeroportArrivee, DateTime dateDepart, DateTime dateArrivee);
+	List<Vol> chercherVol(Aeroport aeroportDepart, Aeroport aeroportArrivee,LocalDateTime dateDepart,LocalDateTime dateArrivee);
 
 	/**
 	 * 
@@ -24,7 +37,7 @@ public interface IConsultController {
 	 * @param dateDepart
 	 * @param dateArrivee
 	 */
-	List<Itineraire> chercherItineraire(Port portDepart, Port portArrivee, DateTime dateDepart, DateTime dateArrivee);
+	List<Itineraire> chercherItineraire(Port portDepart, Port portArrivee,LocalDateTime dateDepart,LocalDateTime dateArrivee);
 
 	/**
 	 * 
@@ -33,7 +46,7 @@ public interface IConsultController {
 	 * @param dateDepart
 	 * @param dateArrivee
 	 */
-	List<Trajet> chercherTrajet(Gare gareDepart, Gare gareArrivee, DateTime dateDepart, DateTime dateArrivee);
+	List<Trajet> chercherTrajet(Gare gareDepart, Gare gareArrivee,LocalDateTime dateDepart,LocalDateTime dateArrivee);
 
 	/**
 	 * 
@@ -67,6 +80,6 @@ public interface IConsultController {
 	 * @param dateDep
 	 * @param dateArr
 	 */
-	List<Voyage> verifierDisponibiiteVoyage(String typeVoyage, Etablissement dep, Etablissement arr, DateTime dateDep, DateTime dateArr);
+	List<Voyage> verifierDisponibiliteVoyage(String typeVoyage, Etablissement dep, Etablissement arr,LocalDateTime dateDep,LocalDateTime dateArr);
 
 }

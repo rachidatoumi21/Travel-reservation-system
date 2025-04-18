@@ -1,49 +1,54 @@
 package Application;
 import Logiciel.*;
 
+/**
+ * A seat arrangement on an aircraft or train.
+ */
 public class Siege extends Arrangement {
 
 	private int rang;
 	private char col;
-	private EtatSiege currentState;
+	private SiegePreference siegePreference;
+	private EtatArrangement currentState;
 
-	/**
-	 * 
-	 * @param rang��
-	 * @param col
-	 */
-	public void choixSiege(int rang��, char col) {
-		// TODO - implement Siege.choixSiege
-		throw new UnsupportedOperationException();
+	public Siege(Section section,
+			int rang,
+			char col,
+			SiegePreference siegePreference,
+			float prix) {
+		super(section, prix);
+		this.rang = rang;
+		this.col = col;
+		this.siegePreference = siegePreference;
+		this.currentState = new EtatLibre();
+		section.addArrangement(this);
+	}
+
+	public int getRang() {
+		return rang;
+	}
+
+	public char getCol() {
+		return col;
+	}
+
+	public SiegePreference getSiegePreference() {
+		return siegePreference;
+	}
+
+	public void setEtat(EtatArrangement newState) {
+		this.currentState = newState;
 	}
 
 	public void reserver() {
-		// TODO - implement Siege.reserver
-		throw new UnsupportedOperationException();
+		currentState.reserver(this);
 	}
 
 	public void liberer() {
-		// TODO - implement Siege.liberer
-		throw new UnsupportedOperationException();
-	}
-
-	public SiegePreference siegePreference() {
-		// TODO - implement Siege.siegePreference
-		throw new UnsupportedOperationException();
+		currentState.liberer(this);
 	}
 
 	public void occuper() {
-		// TODO - implement Siege.occuper
-		throw new UnsupportedOperationException();
+		currentState.occuper(this);
 	}
-
-	/**
-	 * 
-	 * @param etat
-	 */
-	public void setEtat(EtatSiege etat) {
-		// TODO - implement Siege.setEtat
-		throw new UnsupportedOperationException();
-	}
-
 }

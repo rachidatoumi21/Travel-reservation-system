@@ -1,5 +1,23 @@
 package Logiciel;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import java.time.LocalDateTime;
+
+import Application.Voyage;
+import Application.Vol;
+import Application.Trajet;
+import Application.Itineraire;
+import Application.Etablissement;
+import Application.Aeroport;
+import Application.Gare;
+import Application.Port;
+import Application.Compagnie;
+import Application.MoyenTransport;
+import Application.Arrangement;
+
 public class Database implements IConsultController {
 
 	private List<Observateur> observateurs;
@@ -9,126 +27,116 @@ public class Database implements IConsultController {
 	private List<Compagnie> compagnies;
 	private List<MoyenTransport> moyensTransport;
 
-	/**
-	 * 
-	 * @param o
-	 */
-	public void addObservateur(Observateur o) {
-		// TODO - implement Database.addObservateur
-		throw new UnsupportedOperationException();
+
+	/* Getters */
+	protected List<Voyage> getVoyages() {
+		return this.voyages;
+	}
+	protected List<User> getUsers() {
+		return this.users;
+	}
+	protected List<Etablissement> getEtablissements() {
+		return this.etablissements;
+	}
+	protected List<Compagnie> getCompagnies() {
+		return this.compagnies;
+	}
+	protected List<MoyenTransport> getMoyensTransport() {
+		return this.moyensTransport;
 	}
 
-	/**
-	 * 
-	 * @param o
-	 */
+
+	public void addObservateur(Observateur o) {
+		if (o != null && !observateurs.contains(o)) {
+            observateurs.add(o);
+        }
+	}
+	
 	public void removeObservateur(Observateur o) {
-		// TODO - implement Database.removeObservateur
-		throw new UnsupportedOperationException();
+		observateurs.remove(o);
 	}
 
 	public void notifyObservateur() {
-		// TODO - implement Database.notifyObservateur
-		throw new UnsupportedOperationException();
+		for (Observateur o : new ArrayList<>(observateurs)) {
+            o.update();
+        }
 	}
 
-	/**
-	 * 
-	 * @param user
-	 */
+
 	public void addUser(User user) {
-		// TODO - implement Database.addUser
-		throw new UnsupportedOperationException();
+		if (user != null && !users.contains(user)) {
+			users.add(user);
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param user
-	 */
 	public void removeUser(User user) {
-		// TODO - implement Database.removeUser
-		throw new UnsupportedOperationException();
+		if (users.remove(user)) {
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param voyage
-	 */
+
 	public void addVoyage(Voyage voyage) {
-		// TODO - implement Database.addVoyage
-		throw new UnsupportedOperationException();
+		if (voyage != null && !voyages.contains(voyage)) {
+			voyages.add(voyage);
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param voyage
-	 */
 	public void removeVoyage(Voyage voyage) {
-		// TODO - implement Database.removeVoyage
-		throw new UnsupportedOperationException();
+		if (voyages.remove(voyage)) {
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param etab
-	 */
+	
 	public void addEtablissement(Etablissement etab) {
-		// TODO - implement Database.addEtablissement
-		throw new UnsupportedOperationException();
+		if (etab != null && !etablissements.contains(etab)) {
+			etablissements.add(etab);
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param etab
-	 */
 	public void removeEtablissement(Etablissement etab) {
-		// TODO - implement Database.removeEtablissement
-		throw new UnsupportedOperationException();
+		if (etablissements.remove(etab)) {
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param compagnie
-	 */
+
 	public void addCompagnie(Compagnie compagnie) {
-		// TODO - implement Database.addCompagnie
-		throw new UnsupportedOperationException();
+		if (compagnie != null && !compagnies.contains(compagnie)) {
+			compagnies.add(compagnie);
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param compagnie
-	 */
 	public void removeCompagnie(Compagnie compagnie) {
-		// TODO - implement Database.removeCompagnie
-		throw new UnsupportedOperationException();
+		if (compagnies.remove(compagnie)) {
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param moyenTrans
-	 */
+
 	public void addMoyenTransport(MoyenTransport moyenTrans) {
-		// TODO - implement Database.addMoyenTransport
-		throw new UnsupportedOperationException();
+		if (moyenTrans != null && !moyensTransport.contains(moyenTrans)) {
+			moyensTransport.add(moyenTrans);
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param moyenTrans
-	 */
 	public void removeMoyenTransport(MoyenTransport moyenTrans) {
-		// TODO - implement Database.removeMoyenTransport
-		throw new UnsupportedOperationException();
+		if (moyensTransport.remove(moyenTrans)) {
+			notifyObservateur();
+		}
 	}
 
-	/**
-	 * 
-	 * @param mes
-	 */
+
+	@Override
 	public String afficherMessage(String mes) {
-		// TODO - implement Database.afficherMessage
-		throw new UnsupportedOperationException();
+		notifyObservateur();
+		return mes;
 	}
 
 	/**
@@ -137,10 +145,23 @@ public class Database implements IConsultController {
 	 * @param aeroportArrivee
 	 * @param dateDepart
 	 * @param dateArrivee
+	 * 
 	 */
-	public List<Vol> chercherVol(Aeroport aeroportDepart, Aeroport aeroportArrivee, DateTime dateDepart, DateTime dateArrivee) {
-		// TODO - implement Database.chercherVol
-		throw new UnsupportedOperationException();
+	@Override
+	public List<Vol> chercherVol(Aeroport aeroportDepart, Aeroport aeroportArrivee, LocalDateTime dateDepart, LocalDateTime dateArrivee) {
+		List<Vol> result = new ArrayList<>();
+		for (Voyage v : voyages) {
+			if (v instanceof Vol) {
+				Vol vol = (Vol) v;
+				if (vol.getDepart().equals(aeroportDepart) &&
+						vol.getDestination().equals(aeroportArrivee) &&
+						vol.getDateDepart().equals(dateDepart) &&
+						vol.getDateArrivee().equals(dateArrivee)) {
+					result.add(vol);
+				}
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -150,9 +171,21 @@ public class Database implements IConsultController {
 	 * @param dateDepart
 	 * @param dateArrivee
 	 */
-	public List<Itineraire> chercherItineraire(Port portDepart, Port portArrivee, DateTime dateDepart, DateTime dateArrivee) {
-		// TODO - implement Database.chercherItineraire
-		throw new UnsupportedOperationException();
+	@Override
+	public List<Itineraire> chercherItineraire(Port portDepart, Port portArrivee, LocalDateTime dateDepart, LocalDateTime dateArrivee) {
+		List<Itineraire> result = new ArrayList<>();
+		for (Voyage v : voyages) {
+			if (v instanceof Itineraire) {
+				Itineraire iti = (Itineraire) v;
+				if (iti.getDepart().equals(portDepart) &&
+						iti.getDestination().equals(portArrivee) &&
+						iti.getDateDepart().equals(dateDepart) &&
+						iti.getDateArrivee().equals(dateArrivee)) {
+					result.add(iti);
+				}
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -162,45 +195,75 @@ public class Database implements IConsultController {
 	 * @param dateDepart
 	 * @param dateArrivee
 	 */
-	public List<Trajet> chercherTrajet(Gare gareDepart, Gare gareArrivee, DateTime dateDepart, DateTime dateArrivee) {
-		// TODO - implement Database.chercherTrajet
-		throw new UnsupportedOperationException();
+	@Override
+	public List<Trajet> chercherTrajet(Gare gareDepart, Gare gareArrivee, LocalDateTime dateDepart, LocalDateTime dateArrivee) {
+		List<Trajet> result = new ArrayList<>();
+		for (Voyage v : voyages) {
+			if (v instanceof Vol) {
+				Trajet tj = (Trajet) v;
+				if (tj.getDepart().equals(gareDepart) &&
+						tj.getDestination().equals(gareArrivee) &&
+						tj.getDateDepart().equals(dateDepart) &&
+						tj.getDateArrivee().equals(dateArrivee)) {
+					result.add(tj);
+				}
+			}
+		}
+		return result;
 	}
 
 	/**
 	 * 
 	 * @param aeroport
 	 */
+	@Override
 	public List<Vol> afficherVolsParAeroport(Aeroport aeroport) {
-		// TODO - implement Database.afficherVolsParAeroport
-		throw new UnsupportedOperationException();
+		List<Vol> result = new ArrayList<>();
+		for (Voyage v : voyages) {
+			if (v instanceof Vol && ((Vol) v).getDepart().equals(aeroport)) {
+				result.add((Vol) v);
+			}
+		}
+		return result;
 	}
 
 	/**
 	 * 
 	 * @param port
 	 */
+	@Override
 	public List<Itineraire> afficherItinerairesParPort(Port port) {
-		// TODO - implement Database.afficherItinerairesParPort
-		throw new UnsupportedOperationException();
+		List<Itineraire> result = new ArrayList<>();
+		for (Voyage v : voyages) {
+			if (v instanceof Itineraire && ((Itineraire) v).getDepart().equals(port)) {
+				result.add((Itineraire) v);
+			}
+		}
+		return result;
 	}
 
 	/**
 	 * 
 	 * @param gare
 	 */
+	@Override
 	public List<Trajet> afficherTrajetsParGare(Gare gare) {
-		// TODO - implement Database.afficherTrajetsParGare
-		throw new UnsupportedOperationException();
+		List<Trajet> result = new ArrayList<>();
+		for (Voyage v : voyages) {
+			if (v instanceof Trajet && ((Trajet) v).getDepart().equals(gare)) {
+				result.add((Trajet) v);
+			}
+		}
+		return result;
 	}
 
 	/**
 	 * 
 	 * @param vol
 	 */
-	public List<Arrangement> consulterArrangements(Voyage vol) {
-		// TODO - implement Database.consulterArrangements
-		throw new UnsupportedOperationException();
+	@Override
+	public List<Arrangement> consulterArrangements(Voyage voyage) {
+		return voyage.getArrangements(); // TODO
 	}
 
 	/**
@@ -211,9 +274,18 @@ public class Database implements IConsultController {
 	 * @param dateDep
 	 * @param dateArr
 	 */
-	public List<Voyage> verifierDisponibiiteVoyage(String typeVoyage, Etablissement dep, Etablissement arr, DateTime dateDep, DateTime dateArr) {
-		// TODO - implement Database.verifierDisponibiiteVoyage
-		throw new UnsupportedOperationException();
+	@Override
+	public List<Voyage> verifierDisponibiliteVoyage(String typeVoyage, Etablissement dep, Etablissement arr, LocalDateTime dateDep, LocalDateTime dateArr) {
+		switch (typeVoyage.toLowerCase()) {
+            case "vol":
+                return new ArrayList<>(chercherVol((Aeroport) dep, (Aeroport) arr, dateDep, dateArr));
+            case "itineraire":
+                return new ArrayList<>(chercherItineraire((Port) dep, (Port) arr, dateDep, dateArr));
+            case "trajet":
+                return new ArrayList<>(chercherTrajet((Gare) dep, (Gare) arr, dateDep, dateArr));
+            default:
+                return Collections.emptyList();
+        }
 	}
 
 	/**
@@ -221,8 +293,11 @@ public class Database implements IConsultController {
 	 * @param userId
 	 */
 	public User findUser(String userId) {
-		// TODO - implement Database.findUser
-		throw new UnsupportedOperationException();
+		for (User u : users) {
+			if (u.getUserId().equals(userId)) 
+				return u;
+		}
+		return null;
 	}
 
 	/**
@@ -230,8 +305,11 @@ public class Database implements IConsultController {
 	 * @param code
 	 */
 	public Etablissement findEtablissement(String code) {
-		// TODO - implement Database.findEtablissement
-		throw new UnsupportedOperationException();
+		for (Etablissement e : etablissements) {
+			if (e.getCode().equals(code)) 
+				return e;
+		}
+		return null;
 	}
 
 	/**
@@ -239,8 +317,11 @@ public class Database implements IConsultController {
 	 * @param compagnieId
 	 */
 	public Compagnie findCompagnie(String compagnieId) {
-		// TODO - implement Database.findCompagnie
-		throw new UnsupportedOperationException();
+		for (Compagnie comp : compagnies) {
+			if (comp.getId().equals(compagnieId))
+				return comp;
+		}
+		return null;
 	}
 
 	/**
@@ -248,8 +329,12 @@ public class Database implements IConsultController {
 	 * @param id
 	 */
 	public MoyenTransport findMoyenTransport(String id) {
-		// TODO - implement Database.findMoyenTransport
-		throw new UnsupportedOperationException();
+		for (MoyenTransport m : moyensTransport) {
+			if (m.getId().equals(id))
+				return m;
+		}
+		return null;
 	}
+
 
 }

@@ -1,5 +1,5 @@
 package Application;
-public enum PaquebotSectionType {
+public enum SectionPaquebotType {
 	I,
 	O,
 	S,

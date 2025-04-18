@@ -1,15 +1,20 @@
 package Logiciel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class View {
 
-	private List<String> menuOptions;
-	private String selectedOption;
-	private String errorMessage;
-	private Arraylist commands = new Map<String,Command>;
+	protected Database model;
+    protected List<String> menuOptions;
+    protected String selectedOption;
+    protected String message;
 
-	public void displayMenu() {
-		// TODO - implement View.displayMenu
-		throw new UnsupportedOperationException();
-	}
+    public View(Database model) {
+        this.model = model;
+        this.menuOptions = new ArrayList<>();
+    }
+
+    public abstract void displayMenu();
 
 }

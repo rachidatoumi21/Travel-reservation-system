@@ -1,32 +1,47 @@
 package Application;
+import Logiciel.*;
+
+/**
+ * A cabin arrangement on a cruise.
+ */
 public class Cabin extends Arrangement {
 
-	private String numeroCabin;
+	private String numeroCabine;
 	private int capacite;
-	private EtatSiege currentState;
+	private EtatArrangement currentState;
+
+	public Cabin(Section section,
+			String numeroCabine,
+			int capacite,
+			float prix) {
+		super(section, prix);
+		this.numeroCabine = numeroCabine;
+		this.capacite = capacite;
+		this.currentState = new EtatLibre();
+		section.addArrangement(this);
+	}
+
+	public String getNumeroCabine() {
+		return numeroCabine;
+	}
+
+	public int getCapacite() {
+		return capacite;
+	}
+
+	public void setEtat(EtatArrangement newState) {
+		this.currentState = newState;
+	}
 
 	public void reserver() {
-		// TODO - implement Cabin.reserver
-		throw new UnsupportedOperationException();
+		currentState.reserver(this);
 	}
 
 	public void liberer() {
-		// TODO - implement Cabin.liberer
-		throw new UnsupportedOperationException();
+		currentState.liberer(this);
 	}
 
 	public void occuper() {
-		// TODO - implement Cabin.occuper
-		throw new UnsupportedOperationException();
+		currentState.occuper(this);
 	}
-
-	/**
-	 * 
-	 * @param etat
-	 */
-	public void setEtat(EtatSiege etat) {
-		// TODO - implement Cabin.setEtat
-		throw new UnsupportedOperationException();
-	}
-
 }

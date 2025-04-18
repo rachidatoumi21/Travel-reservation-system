@@ -1,20 +1,27 @@
 package Logiciel;
 
-public class EtatOccupe implements EtatSiege {
+import Application.Arrangement;
+import Application.Siege;
+import Application.Cabin;
 
-	public void reserver() {
-		// TODO - implement EtatOccupe.reserver
-		throw new UnsupportedOperationException();
-	}
+public class EtatOccupe implements EtatArrangement {
 
-	public void liberer() {
-		// TODO - implement EtatOccupe.liberer
-		throw new UnsupportedOperationException();
-	}
+	@Override
+    public void reserver(Arrangement arrangement) {
+        // Can't reserve occupied
+    }
 
-	public void occuper() {
-		// TODO - implement EtatOccupe.occuper
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void liberer(Arrangement arrangement) {
+        arrangement.setConfirmed(false);
+        arrangement.setDisponible(true);
+        if (arrangement instanceof Siege) ((Siege) arrangement).setEtat(new EtatLibre());
+        if (arrangement instanceof Cabin) ((Cabin) arrangement).setEtat(new EtatLibre());
+    }
+
+    @Override
+    public void occuper(Arrangement arrangement) {
+        // Already occupied
+    }
 
 }
