@@ -1,5 +1,8 @@
 package Application;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /**
  * Type de voyage: Vol, itineraire, trajet
  */
@@ -9,11 +12,12 @@ public abstract class Voyage {
 	private String voyageId;
 	private Etablissement depart;
 	private Etablissement destination;
-	private LocalTime dateDepart;
-	private LocalTime dateArrivee;
+	private LocalDateTime dateDepart;
+	private LocalDateTime dateArrivee;
 	private Compagnie compagnie;
+	private List<Arrangement> arrangements = new ArrayList<>();
 
-	public Voyage(Etablissement depart, Etablissement destination, LocalTime dateDep, LocalTime dateArr, Compagnie c) {
+	public Voyage(Etablissement depart, Etablissement destination, LocalDateTime dateDep, LocalDateTime dateArr, Compagnie c) {
 		setDepart(depart);
 		setDestination(destination);
 		setDateDepart(dateDep);
@@ -53,19 +57,19 @@ public abstract class Voyage {
 		this.destination = destination;
 	}
 
-	public LocalTime getDateDepart() {
+	public LocalDateTime getDateDepart() {
 		return dateDepart;
 	}
 
-	public void setDateDepart(LocalTime dateDepart) {
+	public void setDateDepart(LocalDateTime dateDepart) {
 		this.dateDepart = dateDepart;
 	}
 
-	public LocalTime getDateArrivee() {
+	public LocalDateTime getDateArrivee() {
 		return dateArrivee;
 	}
 
-	public void setDateArrivee(LocalTime dateArrivee) {
+	public void setDateArrivee(LocalDateTime dateArrivee) {
 		this.dateArrivee = dateArrivee;
 	}
 
@@ -75,6 +79,10 @@ public abstract class Voyage {
 
 	public void setCompagnie(Compagnie compagnie) {
 		this.compagnie = compagnie;
+	}
+
+	public List<Arrangement> getArrangements() {
+		return Collections.unmodifiableList(arrangements);
 	}
 
 
