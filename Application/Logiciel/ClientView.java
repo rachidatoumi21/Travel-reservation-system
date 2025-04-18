@@ -1,8 +1,6 @@
 package Logiciel;
 
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 import Application.Arrangement;
 import Application.Itineraire;
 import Application.Section;
