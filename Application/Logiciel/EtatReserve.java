@@ -1,20 +1,31 @@
 package Logiciel;
 
-public class EtatReserve implements EtatSiege {
+import Application.Arrangement;
+import Application.Siege;
+import Application.Cabin;
+public class EtatReserve implements EtatArrangement {
+	
+	/**
+	 * Reserves the arrangement, changing its state to reserved.
+	 * @param arrangement The arrangement to reserve.
+	 */
+	@Override
+    public void reserver(Arrangement arrangement) {
+        // Already reserved
+    }
 
-	public void reserver() {
-		// TODO - implement EtatReserve.reserver
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void liberer(Arrangement arrangement) {
+        arrangement.setDisponible(true);
+        arrangement.setConfirmed(false);
+        if (arrangement instanceof Siege) ((Siege) arrangement).setEtat(new EtatLibre());
+        if (arrangement instanceof Cabin) ((Cabin) arrangement).setEtat(new EtatLibre());
+    }
 
-	public void liberer() {
-		// TODO - implement EtatReserve.liberer
-		throw new UnsupportedOperationException();
-	}
-
-	public void occuper() {
-		// TODO - implement EtatReserve.occuper
-		throw new UnsupportedOperationException();
-	}
-
+    @Override
+    public void occuper(Arrangement arrangement) {
+        arrangement.setConfirmed(true);
+        if (arrangement instanceof Siege) ((Siege) arrangement).setEtat(new EtatOccupe());
+        if (arrangement instanceof Cabin) ((Cabin) arrangement).setEtat(new EtatOccupe());
+    }
 }
