@@ -3,6 +3,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import Logiciel.Visiteur;
 /**
  * Type de voyage: Vol, itineraire, trajet
  */
@@ -85,5 +87,9 @@ public abstract class Voyage {
 		return Collections.unmodifiableList(arrangements);
 	}
 
+	/**
+     * Abstract accept method for Visitor pattern.
+     */
+    public abstract void accept(Visiteur visitor);
 
 }

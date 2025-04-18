@@ -1,20 +1,17 @@
 package Application;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import Logiciel.*;
 
 public class Vol extends Voyage {
 
-	/**
-	 * 
-	 * @param visitor
-	 */
-	public Vol(Aeroport depart, Aeroport destination, LocalTime dateDep, LocalTime dateArr, CompagnieAerienne c) {
+	public Vol(Aeroport depart, Aeroport destination, LocalDateTime dateDep, LocalDateTime dateArr, CompagnieAerienne c) {
 		super(depart, destination, dateDep, dateArr, c);
 	}
+
+	@Override
 	public void accept(Visiteur visitor) {
-		// TODO - implement Vol.accept
-		throw new UnsupportedOperationException();
+		visitor.visitVol(this);
 	}
 
 }

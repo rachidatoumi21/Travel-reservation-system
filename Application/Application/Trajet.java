@@ -1,22 +1,21 @@
 package Application;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 import Logiciel.*;
 
 public class Trajet extends Voyage {
+	
 	private LinkedList<Gare> garesIntermediaires = new LinkedList<Gare>();
-	public Trajet(Gare depart,Gare destination,LocalTime dateDep, LocalTime dateArr, TrainLigne c) {
+	
+	public Trajet(Gare depart,Gare destination,LocalDateTime dateDep, LocalDateTime dateArr, TrainLigne c) {
 		super(depart, destination, dateDep, dateArr, c);
 		
 	}
-	/**
-	 * 
-	 * @param visitor
-	 */
+	
+	@Override
 	public void accept(Visiteur visitor) {
-		// TODO - implement Trajet.accept
-		throw new UnsupportedOperationException();
+		visitor.visitTrajet(this);
 	}
 	public LinkedList<Gare> getGaresIntermediaires() {
 		return garesIntermediaires;

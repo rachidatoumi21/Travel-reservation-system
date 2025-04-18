@@ -1,70 +1,98 @@
 package Logiciel;
 
-public class AdminView extends View implements Observateur, Visiteur {
+import java.time.format.DateTimeFormatter;
 
-	private List<String> adminMenuOptions;
-	private String selectedOption;
-	private String errorMessage;
-	private Arraylist commands = new Map<String,Command>;
+import Application.Arrangement;
+import Application.Itineraire;
+import Application.Section;
+import Application.SectionAvion;
+import Application.Trajet;
+import Application.Vol;
+import Application.Voyage;
 
-	public void displayMenu() {
-		// TODO - implement AdminView.displayMenu
-		throw new UnsupportedOperationException();
+class AdminView extends View implements Observateur, Visiteur {
+	private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy.MM.dd:HH.mm");
+
+	public AdminView(Database model) {
+		super(model);
+		model.addObservateur(this);
 	}
 
+	@Override
 	public void update() {
-		// TODO - implement AdminView.update
-		throw new UnsupportedOperationException();
+		System.out.println("[Admin View] Database updated:");
+		for (Voyage v : model.getVoyages()) {
+            v.accept(this);
+        }
+
 	}
 
-	/**
-	 * 
-	 * @param vol
-	 */
+	@Override
+	public void displayMenu() {
+		System.out.println("Admin Menu:...");
+	}
+
+	@Override
 	public String visitVol(Vol vol) {
-		// TODO - implement AdminView.visitVol
-		throw new UnsupportedOperationException();
+		StringBuilder sb = new StringBuilder();
+		sb.append(vol.getDepart().getCode()).append('-').append(vol.getDestination().getCode())
+				.append("[:").append(vol.getCompagnie().getNom()).append("]")
+				.append(vol.getVoyageId())
+				.append('(').append(vol.getDateDepart().format(FMT))
+				.append('-').append(vol.getDateArrivee().format(FMT)).append(')');
+		for (Section sec : vol.getVehicule().getSections()) {
+			sec = (SectionAvion) sec;
+			int total = sec.getArrangements().size();
+			int reserved = 0;
+			for (Arrangement a : sec.getArrangements())
+				if (a.isConfirmed())
+					reserved++;
+			sb.append('|').append(sec.getType())
+					.append('(').append(reserved).append('/').append(total).append(')')
+					.append(String.format("%.2f", sec.getPrix()));
+		}
+		return sb.toString();
 	}
 
-	/**
-	 * 
-	 * @param trajet
-	 */
+	@Override
 	public String visitTrajet(Trajet trajet) {
-		// TODO - implement AdminView.visitTrajet
-		throw new UnsupportedOperationException();
+		StringBuilder sb = new StringBuilder();
+		sb.append(trajet.getDepart().getCode()).append('-').append(trajet.getDestination().getCode())
+				.append("[:").append(trajet.getCompagnie().getNom()).append("]")
+				.append(trajet.getVoyageId())
+				.append('(').append(trajet.getDateDepart().format(FMT))
+				.append('-').append(trajet.getDateArrivee().format(FMT)).append(')');
+		for (Section sec : trajet.getVehicule().getSections()) {
+			int total = sec.getArrangements().size();
+			int reserved = 0;
+			for (Arrangement a : sec.getArrangements())
+				if (a.isConfirmed())
+					reserved++;
+			sb.append('|').append(sec.getType())
+					.append('(').append(reserved).append('/').append(total).append(')')
+					.append(String.format("%.2f", sec.getPrix()));
+		}
+		return sb.toString();
 	}
 
-	/**
-	 * 
-	 * @param itineraire
-	 */
+	@Override
 	public String visitItineraire(Itineraire itineraire) {
-		// TODO - implement AdminView.visitItineraire
-		throw new UnsupportedOperationException();
+		StringBuilder sb = new StringBuilder();
+		sb.append(itineraire.getDepart().getCode()).append('-').append(itineraire.getDestination().getCode())
+				.append("[:").append(itineraire.getCompagnie().getNom()).append("]")
+				.append(itineraire.getVoyageId())
+				.append('(').append(itineraire.getDateDepart().format(FMT))
+				.append('-').append(itineraire.getDateArrivee().format(FMT)).append(')');
+		for (Section sec : itineraire.getVehicule().getSections()) {
+			int total = sec.getArrangements().size();
+			int reserved = 0;
+			for (Arrangement a : sec.getArrangements())
+				if (a.isConfirmed())
+					reserved++;
+			sb.append('|').append(sec.getType())
+					.append('(').append(reserved).append('/').append(total).append(')')
+					.append(String.format("%.2f", sec.getPrix()));
+		}
+		return sb.toString();
 	}
-
-	/**
-	 * 
-	 * @param voyages
-	 */
-	public void displayVoyageInfoAdmin(List<Voyage> voyages) {
-		// TODO - implement AdminView.displayVoyageInfoAdmin
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param result
-	 */
-	public void showAdminResult(String result) {
-		// TODO - implement AdminView.showAdminResult
-		throw new UnsupportedOperationException();
-	}
-
-	public void displayAdminMenu() {
-		// TODO - implement AdminView.displayAdminMenu
-		throw new UnsupportedOperationException();
-	}
-
 }
