@@ -1,5 +1,5 @@
 package Application;
-public enum AvionSectionType {
+public enum SectionAvionType {
 	F,
 	A,
 	P,

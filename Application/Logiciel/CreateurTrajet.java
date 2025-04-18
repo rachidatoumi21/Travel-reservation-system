@@ -1,6 +1,6 @@
 package Logiciel;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import Application.Compagnie;
 import Application.Etablissement;
@@ -11,7 +11,7 @@ import Application.Voyage;
 
 public class CreateurTrajet extends CreateurVoyage {
 
-	protected Voyage fabrique(Etablissement depart, Etablissement destination, LocalTime dateDep, LocalTime dateArr,
+	protected Voyage fabrique(Etablissement depart, Etablissement destination, LocalDateTime dateDep, LocalDateTime dateArr,
 			Compagnie c) {
 		if (!(depart instanceof Gare) || !(destination instanceof Gare)) {
 			throw new IllegalArgumentException("Les établissements doivent être des gares.");

@@ -1,6 +1,6 @@
 package Logiciel;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import Application.Compagnie;
 import Application.CompagnieCroisiere;
@@ -10,7 +10,7 @@ import Application.Port;
 
 public class CreateurItineraire extends CreateurVoyage {
 
-	public Itineraire fabrique(Etablissement depart, Etablissement destination, LocalTime dateDep, LocalTime dateArr, Compagnie c) {
+	public Itineraire fabrique(Etablissement depart, Etablissement destination, LocalDateTime dateDep, LocalDateTime dateArr, Compagnie c) {
 		if (!(depart instanceof Port) || !(destination instanceof Port)) {
 			throw new IllegalArgumentException("Les établissements doivent être des ports.");
 		}
