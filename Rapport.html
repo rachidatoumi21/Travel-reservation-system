@@ -366,6 +366,42 @@
                 <code>Visiteur</code> (<code>AdminView</code> et <code>ClientView</code>) fournissent
                 leur propre algorithme de formatage.
             </p>
+              <h3>Patron d'état</h3>
+            <h4>Diagramme de classe</h4>
+            
+            <img src="./" alt="Diagramme de classe patron d'état" class="img-fluid">
+            <h4>Diagramme de séquence du patron État</h4>
+            <img src="Design/" alt="Diagramme de séquence pour patron d'état" class="img-fluid">
+            <p>
+                Nous avons intégré Le patron de conception d'état au système de réservation pour gérer les différents états d’un Siege (Libre, Réservé, Occupé) 
+                rendant ainsi la gestion des états d’un siège plus flexible et maintenable.
+                .Encapsulation de la logique par état : Chaque état (libre, réservé, occupé) a son propre comportement pour les opérations, rendant le code 
+                 plus modulaire et plus facile à maintenir.
+                .Gestion des transitions d’état : Le patron d’état permet de gérer dynamiquement les transitions entre états (par exemple, Libre → Réservé, Réservé → Occupé)
+                 de manière claire et contrôlée.
+                .Évolutivité : Ajouter un nouvel au futur sans modifier la classe Siege, en créant une nouvelle classe concrète qui hérite de l’interface SiegeEtat.
+                .Réduction des conditions complexes : Sans le patron, la classe Siege aurait besoin de multiples conditions (if-else) pour gérer les comportements 
+                selon l’état, ce qui rendrait le code complexe et sujet aux erreurs
+
+            </p>
+            <h4>Diagramme de classe du patron Décorateur</h4>
+            <img src=".png" alt="Diagramme de séquence pour patron Décorateur" class="img-fluid">
+            <p>
+                Le Décorateur est utilisé pour ajouter dynamiquement des fonctionnalités ou services supplémentaires à une réservation (comme un service de repas ou une assurance voyage) 
+                sans modifier la classe Reservation.
+                .Cela permet une extensibilité : on peut ajouter de nouveaux services (décorateurs) sans toucher au code existant, respect du principe OCP.
+
+                .Le coût total d'une réservation peut être calculé en ajoutant les coûts des services décorés (getCost()), ce qui offre une flexibilité pour personnaliser les réservations.
+  
+            </p>
+            <h4>Diagramme de classe du patron Adaptateur</h4>
+            
+            <p>     
+            L'Adaptateur (PaymentAdapter) permet à la Reservation d'interagir avec un système de paiement externe (ExternalPaymentSystem) via une interface standardisée (InterfaceAdapter). 
+           .Il traduit les appels de processPayment() (utilisé par le système interne) en appels compatibles avec executeTransaction() (utilisé par le système externe). 
+           .Cela garantit une séparation des responsabilités et permet à la Reservation de traiter les paiements sans dépendre directement de l'implémentation 
+            de l'ExternalPaymentSystem, rendant le système plus modulaire et interoperable 
+            </p>
              
         </div>
         <br>
