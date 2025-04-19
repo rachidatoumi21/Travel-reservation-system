@@ -334,7 +334,38 @@
                 La variante utilisée est le Undo-Redo qui permet de nous assurer de pouvoir revenir en arrière et de pouvoir annuler une opération effectuée.
             </p>
             <p>Vue que c'est seulement un Administrateur qui peut effectuer ses tâches, c'est le AdminView qui est l'invoquateur de ses commandes.</p>
-            
+
+            <h3>Patron de observateur ET visiteur</h3>
+            <h4>Diagramme de classe</h4>
+            <p>Situé dans le côté droite/milieu du diagramme de classe.</p>
+            <img src="./Design/Diagramme_classe_patron_observateur_visiteur.png" alt="Diagramme de classe patron de observateur et visiteur" class="img-fluid">
+            <h4>Diagramme de séquence du patron observateur</h4>
+            <img src="Design/Diagramme_sequence_patron_observateur_CreationVol.png" alt="Diagramme de séquence pour patron de observateur" class="img-fluid">
+            <h4>Diagramme de séquence du patron visiteur</h4>
+            <img src="Design/diagramme_sequence_patron_visiteur_ClientAfficherVol.png" alt="Diagramme de séquence pour patron de visiteur" class="img-fluid">
+            <p>
+                Nous avons implémenté le patron <em>Observateur</em> pour découpler le modèle de données
+                (<code>Database</code>) des vues (<code>AdminView</code> et <code>ClientView</code>).
+                Chaque vue s’inscrit comme observateur auprès du modèle et réagit automatiquement
+                à toute modification des données (ajout ou suppression de voyages, utilisateurs, etc.).
+                Cette architecture garantit la cohérence en temps réel entre différents points d’accès
+                (administratif et client) et facilite l’extension future : il suffit d’ajouter un nouvel
+                observateur pour propager les changements, sans modifier la logique du modèle.
+    
+                En implémentant <code>addObservateur</code>, <code>removeObservateur</code> et
+                <code>notifyObservateurs</code> dans <code>Database</code>, nous respectons
+                le principe de responsabilité unique (SRP) pour le modèle, tandis que chaque vue
+                implémente uniquement la méthode <code>update()</code> pour se redessiner lorsqu’elle
+                est notifiée. Cette isolation améliore la maintenabilité et la testabilité de l’ensemble.
+            </p>
+            <p>
+                Le patron <em>Visiteur</em> a été appliqué pour séparer la logique de présentation
+                des entités de voyage (<code>Vol</code>, <code>Trajet</code>, <code>Itineraire</code>)
+                de leur structure métier. Chaque sous‑classe de <code>Voyage</code> implémente
+                la méthode <code>accept(Visiteur)</code>, et les deux implémentations de
+                <code>Visiteur</code> (<code>AdminView</code> et <code>ClientView</code>) fournissent
+                leur propre algorithme de formatage.
+            </p>
              
         </div>
         <br>
