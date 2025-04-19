@@ -114,6 +114,20 @@
                         (0%)
                     </td>
                 </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron du Singleton
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
                 <!-- <tr>
                 <td class="first_col">
                     Implémentation
@@ -142,9 +156,24 @@
                         (0%)
                     </td>
                 </tr>
+
                 <tr>
                     <td class="first_col">
-                        Correction DM1
+                        Patron d'État
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron de l'observateur
                     </td>
                     <td>
                         (0%)
@@ -154,6 +183,62 @@
                     </td>
                     <td>
                         (100%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron du visiteur
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron de l'adaptateur
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Patron du décorateur
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                    <td>
+                        (100%)
+                    </td>
+                    <td>
+                        (0%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first_col">
+                        Codage
+                    </td>
+                    <td>
+                        (33%)
+                    </td>
+                    <td>
+                        (33%)
+                    </td>
+                    <td>
+                        (33%)
                     </td>
                 </tr>
                 <!-- <tr>
@@ -213,16 +298,110 @@
         <img src="./Design/DiagramPackage.svg" alt="Diagramme de paquets">
         <br>
         <br>
-
+        <h1 class="box">Diagramme de classe Révisé</h1>
+        <img src="./Design/Diagramme de classe logiciel.svg" alt="diagramme de classe logiciel">
         <h1 class="box">Tâche 1: Patrons de conception</h1>
         <div>
-            <h3>Patron de fabriques</h3>
-            <img src="./Réseau de Pétri/Petri net.png" alt="image du model du réseau tunnel" class="img-fluid">
-            <p>Justification</p>
+            <h3>Patron de fabrique ET Singleton</h3>
+            <h4>Diagramme de classe</h4>
+            <p>Situé dans le côté gauche du diagramme de classe.</p>
+            <img src="./Design/Diagramme_classe_patron_fabrique.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
+            <h4>Diagramme de Séquence</h4>
+            <img src="./Design/SequenceDiagrams/Patron Fabrique incluant singleton.svg" alt="Diagramme de séquence pour patron de fabrique et singleton" class="img-fluid">
+            <p>Nous avons utilisé la variante Méthode de fabrication. Car nous n'avons pas de combinaisons de familles pour les entités de base dans notre application.</p>
+            <p>En regardant l'exemple présenté sur le diagramme de séquence ci-dessus, on voit que le Produit est une compagnie, le Produit Concret est une compagnie Aérienne.
+                Le créateur est CreateurCompagnie et le créateur concret CreateurCompagnieAerienne. 
+                On a la ligne de Train et la compagnie de Croisière comme unités conrètes qui suivent la même idée. 
+            </p>
+            <p>
+                Le patron de fabrique est aussi utilisée pareillement pour les moyens de transport et les voyages.
+            </p>   
+            <p>
+                En procédant de cette manière, on encapsule le processus de création de chaque élément et on la délègue uniquement à la fabrique.
+            </p>
+            <p>Vue que c'est la responsabilité de chaque fabrique de créer une nouvelle entité (Moyen de transport, Compagnie, Voyage), il est plus facile de lui intégrer un générateur de id suivant le patron du singleton. 
+                On s'assure que chaque id est généré selon la spécification pour chaque unité.</p>
+            <br><br>
+            <hr>
+
             <h3>Patron de commande</h3>
-            <img src="./Réseau de Pétri/graphe_accessibilite.jpg" alt="image du graphe d'accessibilité" class="img-fluid">
-            <p>Justification</p>
+            <h4>Diagramme de classe</h4>
+            <p>Situé dans le côté droit du diagramme de classe.</p>
+            <img src="./Design/Diagramme_classe_patron_commande.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
+            <h4>Diagramme de Séquence</h4>
+            <img src="./Design/SequenceDiagrams/Patron de Commande Modification Dates de voyage.svg" alt="image du graphe d'accessibilité" class="img-fluid">
+            <p>On a appliqué le Patron de commande pour les tâches de modification et de suppression de chaque type d'entité. 
+                La variante utilisée est le Undo-Redo qui permet de nous assurer de pouvoir revenir en arrière et de pouvoir annuler une opération effectuée.
+            </p>
+            <p>Vue que c'est seulement un Administrateur qui peut effectuer ses tâches, c'est le AdminView qui est l'invoquateur de ses commandes.</p>
+
+            <h3>Patron de observateur ET visiteur</h3>
+            <h4>Diagramme de classe</h4>
+            <p>Situé dans le côté droite/milieu du diagramme de classe.</p>
+            <img src="./Design/Diagramme_classe_patron_observateur_visiteur.png" alt="Diagramme de classe patron de observateur et visiteur" class="img-fluid">
+            <h4>Diagramme de séquence du patron observateur</h4>
+            <img src="Design/Diagramme_sequence_patron_observateur_CreationVol.png" alt="Diagramme de séquence pour patron de observateur" class="img-fluid">
+            <h4>Diagramme de séquence du patron visiteur</h4>
+            <img src="Design/diagramme_sequence_patron_visiteur_ClientAfficherVol.png" alt="Diagramme de séquence pour patron de visiteur" class="img-fluid">
+            <p>
+                Nous avons implémenté le patron <em>Observateur</em> pour découpler le modèle de données
+                (<code>Database</code>) des vues (<code>AdminView</code> et <code>ClientView</code>).
+                Chaque vue s’inscrit comme observateur auprès du modèle et réagit automatiquement
+                à toute modification des données (ajout ou suppression de voyages, utilisateurs, etc.).
+                Cette architecture garantit la cohérence en temps réel entre différents points d’accès
+                (administratif et client) et facilite l’extension future : il suffit d’ajouter un nouvel
+                observateur pour propager les changements, sans modifier la logique du modèle.
+    
+                En implémentant <code>addObservateur</code>, <code>removeObservateur</code> et
+                <code>notifyObservateurs</code> dans <code>Database</code>, nous respectons
+                le principe de responsabilité unique (SRP) pour le modèle, tandis que chaque vue
+                implémente uniquement la méthode <code>update()</code> pour se redessiner lorsqu’elle
+                est notifiée. Cette isolation améliore la maintenabilité et la testabilité de l’ensemble.
+            </p>
+            <p>
+                Le patron <em>Visiteur</em> a été appliqué pour séparer la logique de présentation
+                des entités de voyage (<code>Vol</code>, <code>Trajet</code>, <code>Itineraire</code>)
+                de leur structure métier. Chaque sous‑classe de <code>Voyage</code> implémente
+                la méthode <code>accept(Visiteur)</code>, et les deux implémentations de
+                <code>Visiteur</code> (<code>AdminView</code> et <code>ClientView</code>) fournissent
+                leur propre algorithme de formatage.
+            </p>
+              <h3>Patron d'état</h3>
+            <h4>Diagramme de classe</h4>
             
+            <img src="./" alt="Diagramme de classe patron d'état" class="img-fluid">
+            <h4>Diagramme de séquence du patron État</h4>
+            <img src="https://github.com/Athavan2/DM3-IFT3911/blob/main/Design/SequenceDiagrams/Sequence%20Diagram-patron%20d'etat.jpg" alt="Diagramme de séquence pour patron d'état" class="img-fluid">
+            <p>
+                Nous avons intégré Le patron de conception d'état au système de réservation pour gérer les différents états d’un Siege (Libre, Réservé, Occupé) 
+                rendant ainsi la gestion des états d’un siège plus flexible et maintenable.
+                .Encapsulation de la logique par état : Chaque état (libre, réservé, occupé) a son propre comportement pour les opérations, rendant le code 
+                 plus modulaire et plus facile à maintenir.
+                .Gestion des transitions d’état : Le patron d’état permet de gérer dynamiquement les transitions entre états (par exemple, Libre → Réservé, Réservé → Occupé)
+                 de manière claire et contrôlée.
+                .Évolutivité : Ajouter un nouvel au futur sans modifier la classe Siege, en créant une nouvelle classe concrète qui hérite de l’interface SiegeEtat.
+                .Réduction des conditions complexes : Sans le patron, la classe Siege aurait besoin de multiples conditions (if-else) pour gérer les comportements 
+                selon l’état, ce qui rendrait le code complexe et sujet aux erreurs
+
+            </p>
+            <h4>Diagramme de classe du patron Décorateur</h4>
+            <img src=".png" alt="Diagramme de séquence pour patron Décorateur" class="img-fluid">
+            <p>
+                Le Décorateur est utilisé pour ajouter dynamiquement des fonctionnalités ou services supplémentaires à une réservation (comme un service de repas ou une assurance voyage) 
+                sans modifier la classe Reservation.
+                .Cela permet une extensibilité : on peut ajouter de nouveaux services (décorateurs) sans toucher au code existant, respect du principe OCP.
+
+                .Le coût total d'une réservation peut être calculé en ajoutant les coûts des services décorés (getCost()), ce qui offre une flexibilité pour personnaliser les réservations.
+  
+            </p>
+            <h4>Diagramme de classe du patron Adaptateur</h4>
+            
+            <p>     
+            L'Adaptateur (PaymentAdapter) permet à la Reservation d'interagir avec un système de paiement externe (ExternalPaymentSystem) via une interface standardisée (InterfaceAdapter). 
+           .Il traduit les appels de processPayment() (utilisé par le système interne) en appels compatibles avec executeTransaction() (utilisé par le système externe). 
+           .Cela garantit une séparation des responsabilités et permet à la Reservation de traiter les paiements sans dépendre directement de l'implémentation 
+            de l'ExternalPaymentSystem, rendant le système plus modulaire et interoperable 
+            </p>
              
         </div>
         <br>
