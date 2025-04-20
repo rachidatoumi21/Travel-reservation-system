@@ -4,7 +4,7 @@ import Application.Arrangement;
 import Application.Siege;
 import Application.Cabin;
 
-public class EtatOccupe implements EtatArrangement {
+public class EtatOccupe implements EtatSiege {
 
 	@Override
     public void reserver(Arrangement arrangement) {
@@ -13,6 +13,7 @@ public class EtatOccupe implements EtatArrangement {
 
     @Override
     public void liberer(Arrangement arrangement) {
+        
         arrangement.setConfirmed(false);
         arrangement.setDisponible(true);
         if (arrangement instanceof Siege) ((Siege) arrangement).setEtat(new EtatLibre());

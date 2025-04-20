@@ -1,28 +1,32 @@
 package Logiciel;
 
+import Application.Compagnie;
+
+/**
+ * Commande pour modifier le prix d’une compagnie.
+ */
 public class CommandModifierPrixCompagnie implements Command {
+	private final Compagnie compagnie;
+	private final float nouveauPrix;
+	private float ancienPrix;
 
-	private Compagnie compagnie;
-	private float prix;
+	public CommandModifierPrixCompagnie(Compagnie c, float prix) {
+		this.compagnie = c;
+		this.nouveauPrix = prix;
+	}
 
+	@Override
 	public void redo() {
-		// TODO - implement CommandModifierPrixCompagnie.redo
-		throw new UnsupportedOperationException();
+		ancienPrix = compagnie.getPrix(); // supposez getPrixBase()
+		compagnie.setPrix(nouveauPrix);
 	}
 
+	@Override
 	public void undo() {
-		// TODO - implement CommandModifierPrixCompagnie.undo
-		throw new UnsupportedOperationException();
+		compagnie.setPrix(ancienPrix);
 	}
 
-	/**
-	 * 
-	 * @param compagnie
-	 * @param prix
-	 */
-	public void modifierPrix(Compagnie compagnie, float prix) {
-		// TODO - implement CommandModifierPrixCompagnie.modifierPrix
-		throw new UnsupportedOperationException();
+	public void modifierPrix(Compagnie c, double prix) {
+		redo();
 	}
-
 }

@@ -1,15 +1,24 @@
 package Logiciel;
 
+// Décorateur pour l’assurance
 public class InsuranceServiceDecorator extends ReservationDecorator {
 
-	public String getDescription() {
-		// TODO - implement InsuranceServiceDecorator.getDescription
-		throw new UnsupportedOperationException();
-	}
+    public InsuranceServiceDecorator(ReservationComponent reservation) {
+        super(reservation);
+    }
 
-	public double getCost() {
-		// TODO - implement InsuranceServiceDecorator.getCost
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public String getDescription() {
+        return super.getDescription() + " + Assurance";
+    }
 
+    @Override
+    public double getCost() {
+        return super.getCost() + insuranceCost();
+    }
+
+    private double insuranceCost() {
+        // tarif fixe ou pourcentage…
+        return 15.0;
+    }
 }

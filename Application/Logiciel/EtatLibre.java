@@ -5,7 +5,7 @@ import Application.Siege;
 import Application.Cabin;
 
 
-public class EtatLibre implements EtatArrangement {
+public class EtatLibre implements EtatSiege {
 
 	/**
 	 * Reserves the arrangement, changing its state to reserved.

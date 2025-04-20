@@ -1,28 +1,32 @@
 package Logiciel;
 
+import Application.Compagnie;
+
+/**
+ * Commande pour modifier le nom d’une compagnie.
+ */
 public class CommandModifierNomCompagnie implements Command {
+    private final Compagnie compagnie;
+    private final String nouveauNom;
+    private String ancienNom;
 
-	private Compagnie compagnie;
-	private String nom;
+    public CommandModifierNomCompagnie(Compagnie c, String nom) {
+        this.compagnie  = c;
+        this.nouveauNom = nom;
+    }
 
-	public void redo() {
-		// TODO - implement CommandModifierNomCompagnie.redo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void redo() {
+        ancienNom = compagnie.getNom();
+        compagnie.setNom(nouveauNom);
+    }
 
-	public void undo() {
-		// TODO - implement CommandModifierNomCompagnie.undo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void undo() {
+        compagnie.setNom(ancienNom);
+    }
 
-	/**
-	 * 
-	 * @param compagnie
-	 * @param nom
-	 */
-	public void modifierNom(Compagnie compagnie, String nom) {
-		// TODO - implement CommandModifierNomCompagnie.modifierNom
-		throw new UnsupportedOperationException();
-	}
-
+    public void modifierNom(Compagnie c, String nom) {
+        redo();
+    }
 }

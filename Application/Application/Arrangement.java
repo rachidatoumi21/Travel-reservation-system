@@ -4,7 +4,7 @@ public abstract class Arrangement {
 
 	private boolean estDisponible;
 	private boolean isConfirmed;
-	private float prix;
+	private double prix;
 	private Section section;
 
 	
@@ -12,7 +12,7 @@ public abstract class Arrangement {
 	 * @param section the section (class) of the vehicle
 	 * @param prix    price for this arrangement
 	 */
-	public Arrangement(Section section, float prix) {
+	public Arrangement(Section section, double prix) {
 		this.section = section;
 		this.prix = prix;
 		this.estDisponible = true;
@@ -39,11 +39,11 @@ public abstract class Arrangement {
 		this.isConfirmed = confirmed;
 	}
 
-	public float getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(float prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 

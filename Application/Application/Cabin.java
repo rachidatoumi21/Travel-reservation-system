@@ -8,7 +8,7 @@ public class Cabin extends Arrangement {
 
 	private String numeroCabine;
 	private int capacite;
-	private EtatArrangement currentState;
+	private EtatSiege currentState;
 
 	public Cabin(Section section,
 			String numeroCabine,
@@ -29,7 +29,7 @@ public class Cabin extends Arrangement {
 		return capacite;
 	}
 
-	public void setEtat(EtatArrangement newState) {
+	public void setEtat(EtatSiege newState) {
 		this.currentState = newState;
 	}
 

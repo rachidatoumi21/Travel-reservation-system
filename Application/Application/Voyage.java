@@ -13,15 +13,16 @@ public abstract class Voyage {
 	private MoyenTransport vehicule;
 	private String voyageId;
 	private Etablissement depart;
-	private Etablissement destination;
+
+	private Etablissement arrivee;
 	private LocalDateTime dateDepart;
 	private LocalDateTime dateArrivee;
 	private Compagnie compagnie;
 	private List<Arrangement> arrangements = new ArrayList<>();
 
-	public Voyage(Etablissement depart, Etablissement destination, LocalDateTime dateDep, LocalDateTime dateArr, Compagnie c) {
+	public Voyage(Etablissement depart, Etablissement arrivee, LocalDateTime dateDep, LocalDateTime dateArr, Compagnie c) {
 		setDepart(depart);
-		setDestination(destination);
+		setArrivee(arrivee);
 		setDateDepart(dateDep);
 		setDateArrivee(dateArr);
 		setCompagnie(c);
@@ -51,12 +52,12 @@ public abstract class Voyage {
 		this.depart = depart;
 	}
 
-	public Etablissement getDestination() {
-		return destination;
+	public Etablissement getArrivee() {
+		return arrivee;
 	}
 
-	public void setDestination(Etablissement destination) {
-		this.destination = destination;
+	public void setArrivee(Etablissement arrivee) {
+		this.arrivee = arrivee;
 	}
 
 	public LocalDateTime getDateDepart() {

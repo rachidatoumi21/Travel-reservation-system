@@ -1,28 +1,30 @@
 package Logiciel;
+import Application.Etablissement;
 
 public class CommandModifierVilleEtablissement implements Command {
+    private Etablissement etablissement;
+    private Ville nouvelleVille;
+    private Ville ancienneVille;
 
-	private Etablissement etablissement;
-	private Ville ville;
+    public CommandModifierVilleEtablissement(Etablissement e, Ville v) {
+        this.etablissement = e;
+        this.nouvelleVille = v;
+    }
 
-	public void redo() {
-		// TODO - implement CommandModifierVilleEtablissement.redo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void redo() {
+        // sauvegarde de l’état avant modification
+        ancienneVille = etablissement.getVille();
+        etablissement.setVille(nouvelleVille);
+    }
 
-	public void undo() {
-		// TODO - implement CommandModifierVilleEtablissement.undo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void undo() {
+        etablissement.setVille(ancienneVille);
+    }
 
-	/**
-	 * 
-	 * @param etablissement
-	 * @param ville
-	 */
-	public void modifierVille(Etablissement etablissement, Ville ville) {
-		// TODO - implement CommandModifierVilleEtablissement.modifierVille
-		throw new UnsupportedOperationException();
-	}
-
+    /** Point d’entrée direct, comme défini en UML */
+    public void modifierVille(Etablissement e, Ville v) {
+        redo();
+    }
 }

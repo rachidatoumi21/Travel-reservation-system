@@ -3,7 +3,7 @@ package Logiciel;
 import Application.Arrangement;
 import Application.Siege;
 import Application.Cabin;
-public class EtatReserve implements EtatArrangement {
+public class EtatReserve implements EtatSiege {
 	
 	/**
 	 * Reserves the arrangement, changing its state to reserved.
@@ -16,6 +16,7 @@ public class EtatReserve implements EtatArrangement {
 
     @Override
     public void liberer(Arrangement arrangement) {
+
         arrangement.setDisponible(true);
         arrangement.setConfirmed(false);
         if (arrangement instanceof Siege) ((Siege) arrangement).setEtat(new EtatLibre());
@@ -24,6 +25,7 @@ public class EtatReserve implements EtatArrangement {
 
     @Override
     public void occuper(Arrangement arrangement) {
+        
         arrangement.setConfirmed(true);
         if (arrangement instanceof Siege) ((Siege) arrangement).setEtat(new EtatOccupe());
         if (arrangement instanceof Cabin) ((Cabin) arrangement).setEtat(new EtatOccupe());

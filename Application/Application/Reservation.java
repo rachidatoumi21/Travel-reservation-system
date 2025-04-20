@@ -1,91 +1,150 @@
 package Application;
+
+import Logiciel.*;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+
+/**
+ * Une réservation conservée en mémoire pour les tests.
+ */
 public class Reservation {
 
-	private Client client;
-	private String numReservation;
-	private String statut;
-	private DateTime dateCreation;
-	private DateTime dateExpiration;
-	private DateTime datePaiement;
-	private ModePaiement modePaiement;
-	private boolean isPaid;
+    // stockage statique de toutes les réservations
+    private static final Map<String, Reservation> store = new HashMap<>();
 
-	/**
-	 * 
-	 * @param numReservation
-	 */
-	public Reservation getReservationDetails(String numReservation) {
-		// TODO - implement Reservation.getReservationDetails
-		throw new UnsupportedOperationException();
-	}
+    
+    private Client client;
+    private String numReservation;
+    private Arrangement arrangement;    
+    private Voyage voyage;              
+    private Double prix;
+    private String statut;
+    private LocalDateTime dateCreation;
+    private LocalDateTime dateExpiration;
+    private LocalDateTime datePaiement;
+    private ModePaiment modePaiement;
+    private boolean isPaid;
 
-	public String getId() {
-		// TODO - implement Reservation.getId
-		throw new UnsupportedOperationException();
-	}
 
-	public Voyage getVoyage() {
-		// TODO - implement Reservation.getVoyage
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Récupère la réservation en mémoire par son numéro.
+     */
+    public static Reservation getReservationDetails(String numReservation) {
+        return store.get(numReservation);
+    }
 
-	public Client getClient() {
-		return this.client;
-	}
+    /**
+     * Indique si la réservation est expirée (au‑delà de dateExpiration).
+     */
+    public boolean estExpiree() {
+        return LocalDateTime.now().isAfter(dateExpiration);
+    }
 
-	public String getStatut() {
-		return this.statut;
-	}
+    /**
+     * Vérifie que l'arrangement est toujours disponible.
+     * Nécessite que Arrangement expose isDisponible().
+     */
+    public boolean validerDisponibilite() {
+        return arrangement.isDisponible();
+    }
 
-	public DateTime getDateExpiration() {
-		return this.dateExpiration;
-	}
+    /**
+     * Confirme ce paiement sur la réservation :
+     * met à jour statut, datePaiement et flag isPaid.
+     */
+    public void confirmerPaiement(Paiement p) {
+        this.statut       = "PAID";
+        this.isPaid       = true;
+        this.datePaiement = LocalDateTime.now();
+        this.modePaiement = p.getModePaiement();
+    }
 
-	public booleanestExpir�e() {
-		// TODO - implement Reservation.estExpir�e
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Annule la réservation : changement de statut et 
+     * remise à dispo de l'arrangement si nécessaire.
+     */
+    public void annuler() {
+        this.statut = "CANCELLED";
+        this.isPaid = false;
+        arrangement.setDisponible(true);
+    }
 
-	public booleanvaliderDisponibilit�() {
-		// TODO - implement Reservation.validerDisponibilit�
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Crée une nouvelle réservation en mémoire.
+     * @param client      le client qui réserve
+     * @param arrangement l'arrangement choisi
+     * @param voyage      le voyage correspondant
+     */
+    public void creerReservation(Client client,
+                                  Arrangement arrangement,
+                                  Voyage voyage) {
+        this.client          = client;
+        this.arrangement     = arrangement;
+        this.voyage          = voyage;
+        this.numReservation  = UUID.randomUUID().toString();
+        this.prix            = arrangement.getPrix();
+        this.dateCreation    = LocalDateTime.now();
+        this.dateExpiration  = dateCreation.plusHours(24);  // tenue 24 h
+        this.statut          = "PENDING";
+        this.isPaid          = false;
 
-	/**
-	 * 
-	 * @param p
-	 */
-	public void confirmerPaiement(Paiement p) {
-		// TODO - implement Reservation.confirmerPaiement
-		throw new UnsupportedOperationException();
-	}
+        // enregistre dans le store
+        store.put(this.numReservation, this);
+    }
 
-	public void annuler() {
-		// TODO - implement Reservation.annuler
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Lance le paiement pour cette réservation :
+     * crée et exécute le Paiement, puis confirme ou échoue.
+     */
+    public void payerReservation(Client client,
+                                 String numReservation,
+                                 ModePaiment modePaiement,
+                                 String infoCarte) {
+        // 1) Vérifier cohérence
+        if (! this.client.equals(client)
+         || ! this.numReservation.equals(numReservation)) {
+            throw new IllegalArgumentException("Réservation ou client invalide");
+        }
 
-	/**
-	 * 
-	 * @param client
-	 * @param arrangement
-	 * @param voyage
-	 */
-	public void creerReservation(int client, Arrangement arrangement, Voyage voyage) {
-		// TODO - implement Reservation.creerReservation
-		throw new UnsupportedOperationException();
-	}
+        // 2) Créer et configurer le Paiement
+        Paiement p = new Paiement("", 0.0, modePaiement, "PENDING");
+        boolean okCreate = p.creerPaiement(client, numReservation, modePaiement, infoCarte);
+        if (! okCreate) {
+            throw new IllegalStateException("Impossible de créer le paiement");
+        }
 
-	/**
-	 * 
-	 * @param client
-	 * @param numReservation
-	 * @param modePaiement
-	 * @param infoCarte
-	 */
-	public void payerReservation(Client client, String numReservation, ModePaiement modePaiement, String infoCarte) {
-		// TODO - implement Reservation.payerReservation
-		throw new UnsupportedOperationException();
-	}
+        // 3) Exécuter le paiement
+        boolean paid = p.effectuerPaiement(p);
+        if (paid) {
+            confirmerPaiement(p);
+        } else {
+            this.statut = "FAILED";
+        }
+    }
 
+	// ——— getters ———
+    public String getId() {
+        return numReservation;
+    }
+    public Voyage getVoyage() {
+        return voyage;
+    }
+    public Client getClient() {
+        return client;
+    }
+    public String getStatut() {
+        return statut;
+    }
+    public Double getPrix() {
+        return prix;
+    }
+    public LocalDateTime getDateExpiration() {
+        return dateExpiration;
+    }
+
+
+  
 }

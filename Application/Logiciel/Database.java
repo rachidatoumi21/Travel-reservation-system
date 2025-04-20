@@ -27,41 +27,42 @@ public class Database implements IConsultController {
 	private List<Compagnie> compagnies;
 	private List<MoyenTransport> moyensTransport;
 
-
 	/* Getters */
 	protected List<Voyage> getVoyages() {
 		return this.voyages;
 	}
+
 	protected List<User> getUsers() {
 		return this.users;
 	}
+
 	protected List<Etablissement> getEtablissements() {
 		return this.etablissements;
 	}
+
 	protected List<Compagnie> getCompagnies() {
 		return this.compagnies;
 	}
+
 	protected List<MoyenTransport> getMoyensTransport() {
 		return this.moyensTransport;
 	}
 
-
 	public void addObservateur(Observateur o) {
 		if (o != null && !observateurs.contains(o)) {
-            observateurs.add(o);
-        }
+			observateurs.add(o);
+		}
 	}
-	
+
 	public void removeObservateur(Observateur o) {
 		observateurs.remove(o);
 	}
 
 	public void notifyObservateur() {
 		for (Observateur o : new ArrayList<>(observateurs)) {
-            o.update();
-        }
+			o.update();
+		}
 	}
-
 
 	public void addUser(User user) {
 		if (user != null && !users.contains(user)) {
@@ -76,7 +77,6 @@ public class Database implements IConsultController {
 		}
 	}
 
-
 	public void addVoyage(Voyage voyage) {
 		if (voyage != null && !voyages.contains(voyage)) {
 			voyages.add(voyage);
@@ -90,7 +90,6 @@ public class Database implements IConsultController {
 		}
 	}
 
-	
 	public void addEtablissement(Etablissement etab) {
 		if (etab != null && !etablissements.contains(etab)) {
 			etablissements.add(etab);
@@ -103,7 +102,6 @@ public class Database implements IConsultController {
 			notifyObservateur();
 		}
 	}
-
 
 	public void addCompagnie(Compagnie compagnie) {
 		if (compagnie != null && !compagnies.contains(compagnie)) {
@@ -118,7 +116,6 @@ public class Database implements IConsultController {
 		}
 	}
 
-
 	public void addMoyenTransport(MoyenTransport moyenTrans) {
 		if (moyenTrans != null && !moyensTransport.contains(moyenTrans)) {
 			moyensTransport.add(moyenTrans);
@@ -131,7 +128,6 @@ public class Database implements IConsultController {
 			notifyObservateur();
 		}
 	}
-
 
 	@Override
 	public String afficherMessage(String mes) {
@@ -148,13 +144,14 @@ public class Database implements IConsultController {
 	 * 
 	 */
 	@Override
-	public List<Vol> chercherVol(Aeroport aeroportDepart, Aeroport aeroportArrivee, LocalDateTime dateDepart, LocalDateTime dateArrivee) {
+	public List<Vol> chercherVol(Aeroport aeroportDepart, Aeroport aeroportArrivee, LocalDateTime dateDepart,
+			LocalDateTime dateArrivee) {
 		List<Vol> result = new ArrayList<>();
 		for (Voyage v : voyages) {
 			if (v instanceof Vol) {
 				Vol vol = (Vol) v;
 				if (vol.getDepart().equals(aeroportDepart) &&
-						vol.getDestination().equals(aeroportArrivee) &&
+						vol.getArrivee().equals(aeroportArrivee) &&
 						vol.getDateDepart().equals(dateDepart) &&
 						vol.getDateArrivee().equals(dateArrivee)) {
 					result.add(vol);
@@ -172,13 +169,14 @@ public class Database implements IConsultController {
 	 * @param dateArrivee
 	 */
 	@Override
-	public List<Itineraire> chercherItineraire(Port portDepart, Port portArrivee, LocalDateTime dateDepart, LocalDateTime dateArrivee) {
+	public List<Itineraire> chercherItineraire(Port portDepart, Port portArrivee, LocalDateTime dateDepart,
+			LocalDateTime dateArrivee) {
 		List<Itineraire> result = new ArrayList<>();
 		for (Voyage v : voyages) {
 			if (v instanceof Itineraire) {
 				Itineraire iti = (Itineraire) v;
 				if (iti.getDepart().equals(portDepart) &&
-						iti.getDestination().equals(portArrivee) &&
+						iti.getArrivee().equals(portArrivee) &&
 						iti.getDateDepart().equals(dateDepart) &&
 						iti.getDateArrivee().equals(dateArrivee)) {
 					result.add(iti);
@@ -196,13 +194,14 @@ public class Database implements IConsultController {
 	 * @param dateArrivee
 	 */
 	@Override
-	public List<Trajet> chercherTrajet(Gare gareDepart, Gare gareArrivee, LocalDateTime dateDepart, LocalDateTime dateArrivee) {
+	public List<Trajet> chercherTrajet(Gare gareDepart, Gare gareArrivee, LocalDateTime dateDepart,
+			LocalDateTime dateArrivee) {
 		List<Trajet> result = new ArrayList<>();
 		for (Voyage v : voyages) {
 			if (v instanceof Vol) {
 				Trajet tj = (Trajet) v;
 				if (tj.getDepart().equals(gareDepart) &&
-						tj.getDestination().equals(gareArrivee) &&
+						tj.getArrivee().equals(gareArrivee) &&
 						tj.getDateDepart().equals(dateDepart) &&
 						tj.getDateArrivee().equals(dateArrivee)) {
 					result.add(tj);
@@ -275,17 +274,18 @@ public class Database implements IConsultController {
 	 * @param dateArr
 	 */
 	@Override
-	public List<Voyage> verifierDisponibiliteVoyage(String typeVoyage, Etablissement dep, Etablissement arr, LocalDateTime dateDep, LocalDateTime dateArr) {
+	public List<Voyage> verifierDisponibiliteVoyage(String typeVoyage, Etablissement dep, Etablissement arr,
+			LocalDateTime dateDep, LocalDateTime dateArr) {
 		switch (typeVoyage.toLowerCase()) {
-            case "vol":
-                return new ArrayList<>(chercherVol((Aeroport) dep, (Aeroport) arr, dateDep, dateArr));
-            case "itineraire":
-                return new ArrayList<>(chercherItineraire((Port) dep, (Port) arr, dateDep, dateArr));
-            case "trajet":
-                return new ArrayList<>(chercherTrajet((Gare) dep, (Gare) arr, dateDep, dateArr));
-            default:
-                return Collections.emptyList();
-        }
+			case "vol":
+				return new ArrayList<>(chercherVol((Aeroport) dep, (Aeroport) arr, dateDep, dateArr));
+			case "itineraire":
+				return new ArrayList<>(chercherItineraire((Port) dep, (Port) arr, dateDep, dateArr));
+			case "trajet":
+				return new ArrayList<>(chercherTrajet((Gare) dep, (Gare) arr, dateDep, dateArr));
+			default:
+				return Collections.emptyList();
+		}
 	}
 
 	/**
@@ -294,7 +294,7 @@ public class Database implements IConsultController {
 	 */
 	public User findUser(String userId) {
 		for (User u : users) {
-			if (u.getUserId().equals(userId)) 
+			if (u.getUserId().equals(userId))
 				return u;
 		}
 		return null;
@@ -306,7 +306,7 @@ public class Database implements IConsultController {
 	 */
 	public Etablissement findEtablissement(String code) {
 		for (Etablissement e : etablissements) {
-			if (e.getCode().equals(code)) 
+			if (e.getCode().equals(code))
 				return e;
 		}
 		return null;
@@ -335,6 +335,5 @@ public class Database implements IConsultController {
 		}
 		return null;
 	}
-
 
 }

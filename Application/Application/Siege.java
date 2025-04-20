@@ -9,13 +9,14 @@ public class Siege extends Arrangement {
 	private int rang;
 	private char col;
 	private SiegePreference siegePreference;
-	private EtatArrangement currentState;
+	private EtatSiege currentState;
 
 	public Siege(Section section,
 			int rang,
 			char col,
 			SiegePreference siegePreference,
 			float prix) {
+				
 		super(section, prix);
 		this.rang = rang;
 		this.col = col;
@@ -36,7 +37,7 @@ public class Siege extends Arrangement {
 		return siegePreference;
 	}
 
-	public void setEtat(EtatArrangement newState) {
+	public void setEtat(EtatSiege newState) {
 		this.currentState = newState;
 	}
 

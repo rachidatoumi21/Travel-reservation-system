@@ -3,7 +3,7 @@ package Logiciel;
 import Application.Arrangement;
 
 
-public interface EtatArrangement {
+public interface EtatSiege {
 
 	void reserver(Arrangement arrangement);
 	void liberer(Arrangement arrangement);

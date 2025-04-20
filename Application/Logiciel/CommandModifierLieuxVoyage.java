@@ -1,30 +1,44 @@
 package Logiciel;
 
+import Application.Voyage;
+import Application.Etablissement;
+import java.time.LocalDateTime;
+
+/**
+ * Commande pour modifier les lieux de départ et d’arrivée d’un voyage.
+ */
 public class CommandModifierLieuxVoyage implements Command {
+    private final Voyage voyage;
+    private final Etablissement nouveauDepart;
+    private final Etablissement nouveauArrivee;
+    private Etablissement ancienDepart;
+    private Etablissement ancienArrivee;
 
-	private Voyage voyage;
-	private Etablissement lieuDepart;
-	private Etablissement lieuArrivee;
+    public CommandModifierLieuxVoyage(Voyage v,
+                                      Etablissement dep,
+                                      Etablissement arr) {
+        this.voyage         = v;
+        this.nouveauDepart  = dep;
+        this.nouveauArrivee = arr;
+    }
 
-	/**
-	 * 
-	 * @param voyage
-	 * @param lieuDepart
-	 * @param dateArrivee
-	 */
-	private void modificationHeures(Voyage voyage, dateTime lieuDepart, dateTime dateArrivee) {
-		// TODO - implement CommandModifierLieuxVoyage.modificationHeures
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void redo() {
+        ancienDepart  = voyage.getDepart();
+        ancienArrivee = voyage.getArrivee();
+        voyage.setDepart(nouveauDepart);
+        voyage.setArrivee(nouveauArrivee);
+    }
 
-	public void redo() {
-		// TODO - implement CommandModifierLieuxVoyage.redo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void undo() {
+        voyage.setDepart(ancienDepart);
+        voyage.setArrivee(ancienArrivee);
+    }
 
-	public void undo() {
-		// TODO - implement CommandModifierLieuxVoyage.undo
-		throw new UnsupportedOperationException();
-	}
-
+    public void modificationLieux(Voyage v,
+                                  Etablissement dep,
+                                  Etablissement arr) {
+        redo();
+    }
 }

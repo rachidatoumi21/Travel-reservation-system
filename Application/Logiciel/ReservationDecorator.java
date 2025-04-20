@@ -1,17 +1,20 @@
 package Logiciel;
 
-public class ReservationDecorator implements ReservationComponent {
+// Decorator abstrait (déjà dans le diagramme)
+public abstract class ReservationDecorator implements ReservationComponent {
+    protected ReservationComponent reservation;
 
-	private ReservationComponent reservation;
+    public ReservationDecorator(ReservationComponent reservation) {
+        this.reservation = reservation;
+    }
 
-	public String getDescription() {
-		// TODO - implement ReservationDecorator.getDescription
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public String getDescription() {
+        return reservation.getDescription();
+    }
 
-	public double getCost() {
-		// TODO - implement ReservationDecorator.getCost
-		throw new UnsupportedOperationException();
-	}
-
+    @Override
+    public double getCost() {
+        return reservation.getCost();
+    }
 }

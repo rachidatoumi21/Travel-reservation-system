@@ -1,28 +1,47 @@
 package Logiciel;
 
-public class CommandSuppressionEtablissement {
+import java.util.Map;
+import Application.Etablissement;
 
-	private String idEtablissement;
-	private Map<String, Etablissement> etablissements;
+/**
+ * Commande pour supprimer (et restaurer) un établissement dans une Map.
+ */
+public class CommandSuppressionEtablissement implements Command {
+    private final String idEtablissement;
+    private final Map<String, Etablissement> etablissements;
+    private Etablissement etablissementSupprime;
 
-	/**
-	 * 
-	 * @param idEtablissement
-	 * @param voyages
-	 */
-	public Map<String, Etablissement> supprimerEtablissement(String idEtablissement, Map<String, Etablissement> voyages) {
-		// TODO - implement CommandSuppressionEtablissement.supprimerEtablissement
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * @param idEtablissement  l’identifiant de l’établissement à supprimer
+     * @param etablissements    la Map contenant tous les établissements
+     */
+    public CommandSuppressionEtablissement(String idEtablissement,
+                                           Map<String, Etablissement> etablissements) {
+        this.idEtablissement = idEtablissement;
+        this.etablissements   = etablissements;
+    }
 
-	public void redo() {
-		// TODO - implement CommandSuppressionEtablissement.redo
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Supprime l’établissement de la Map et renvoie la Map mise à jour.
+     */
+    public Map<String, Etablissement> supprimerEtablissement(String idEtablissement,
+                                                             Map<String, Etablissement> etablissements) {
+        // on s’assure d’utiliser bien nos attributs internes
+        redo();
+        return etablissements;
+    }
 
-	public void undo() {
-		// TODO - implement CommandSuppressionEtablissement.undo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void redo() {
+        // retire et mémorise pour pouvoir annuler
+        etablissementSupprime = etablissements.remove(idEtablissement);
+    }
 
+    @Override
+    public void undo() {
+        // remet l’établissement supprimé si on l’avait bien en mémoire
+        if (etablissementSupprime != null) {
+            etablissements.put(idEtablissement, etablissementSupprime);
+        }
+    }
 }

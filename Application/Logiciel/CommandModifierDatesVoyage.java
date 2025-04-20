@@ -1,30 +1,44 @@
 package Logiciel;
 
+import java.time.LocalDateTime;
+import Application.Voyage;
+
+/**
+ * Commande pour modifier les dates de départ et d’arrivée d’un voyage.
+ */
 public class CommandModifierDatesVoyage implements Command {
+    private final Voyage voyage;
+    private final LocalDateTime nouvelleDateDepart;
+    private final LocalDateTime nouvelleDateArrivee;
+    private LocalDateTime ancienneDateDepart;
+    private LocalDateTime ancienneDateArrivee;
 
-	private Voyage voyage;
-	private dateTime dateDepart;
-	private dateTime dateArrivee;
+    public CommandModifierDatesVoyage(Voyage v,
+                                      LocalDateTime dDep,
+                                      LocalDateTime dArr) {
+        this.voyage               = v;
+        this.nouvelleDateDepart   = dDep;
+        this.nouvelleDateArrivee  = dArr;
+    }
 
-	/**
-	 * 
-	 * @param voyage
-	 * @param dateDepart
-	 * @param dateArrivee
-	 */
-	private void modificationHeures(Voyage voyage, dateTime dateDepart, dateTime dateArrivee) {
-		// TODO - implement CommandModifierDatesVoyage.modificationHeures
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void redo() {
+        ancienneDateDepart  = voyage.getDateDepart();
+        ancienneDateArrivee = voyage.getDateArrivee();
+        voyage.setDateDepart(nouvelleDateDepart);
+        voyage.setDateArrivee(nouvelleDateArrivee);
+    }
 
-	public void redo() {
-		// TODO - implement CommandModifierDatesVoyage.redo
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void undo() {
+        voyage.setDateDepart(ancienneDateDepart);
+        voyage.setDateArrivee(ancienneDateArrivee);
+    }
 
-	public void undo() {
-		// TODO - implement CommandModifierDatesVoyage.undo
-		throw new UnsupportedOperationException();
-	}
-
+    public void modificationHeures(Voyage v,
+                                   LocalDateTime dDep,
+                                   LocalDateTime dArr) {
+									
+        redo();
+    }
 }
