@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 
 class AdminView extends View implements Observateur, Visiteur {
 	private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy.MM.dd:HH.mm");
-
+	
 	public AdminView(Database model) {
 		super(model);
 		model.addObservateur(this);
@@ -21,11 +21,24 @@ class AdminView extends View implements Observateur, Visiteur {
 
 	@Override
 	public void update() {
-		System.out.println("[Admin View] Database updated:");
-		for (Voyage v : model.getVoyages()) {
-            v.accept(this);
-        }
+	
+		long volsCount = model.getVoyages().stream()
+				.filter(v -> v instanceof Vol)
+				.count();
+		long trajetsCount = model.getVoyages().stream()
+				.filter(v -> v instanceof Trajet)
+				.count();
+		long itinsCount = model.getVoyages().stream()
+				.filter(v -> v instanceof Itineraire)
+				.count();
 
+		System.out.printf(
+				"[Admin View] Database updated: %d vols, %d trajets, %d itinéraires%n",
+				volsCount, trajetsCount, itinsCount);
+
+		for (Voyage v : model.getVoyages()) {
+			v.accept(this);
+		}
 	}
 
 	@Override

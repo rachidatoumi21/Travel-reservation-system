@@ -28,6 +28,15 @@ public class Database implements IConsultController {
 	private List<Compagnie> compagnies;
 	private List<MoyenTransport> moyensTransport;
 
+	public Database() {
+		this.observateurs = new ArrayList<>();
+		this.users = new ArrayList<>();
+		this.voyages = new ArrayList<>();
+		this.etablissements = new ArrayList<>();
+		this.compagnies = new ArrayList<>();
+		this.moyensTransport = new ArrayList<>();
+	}
+	
 	/* Getters */
 	public List<Voyage> getVoyages() {
 		return this.voyages;

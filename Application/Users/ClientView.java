@@ -20,7 +20,20 @@ public class ClientView extends View implements Observateur, Visiteur {
 
     @Override
     public void update() {
-        System.out.println("[Client View] Availability update:");
+        long volsCount = model.getVoyages().stream()
+                .filter(v -> v instanceof Vol)
+                .count();
+        long trajetsCount = model.getVoyages().stream()
+                .filter(v -> v instanceof Trajet)
+                .count();
+        long itinsCount = model.getVoyages().stream()
+                .filter(v -> v instanceof Itineraire)
+                .count();
+
+        System.out.printf(
+                "[Client View] Availability updated: %d vols, %d trajets, %d itinéraires%n",
+                volsCount, trajetsCount, itinsCount);
+
         for (Voyage v : model.getVoyages()) {
             v.accept(this);
         }
