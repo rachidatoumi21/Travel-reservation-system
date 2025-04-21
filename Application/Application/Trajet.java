@@ -2,7 +2,8 @@ package Application;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
-import Logiciel.*;
+
+import Users.Visiteur;
 
 public class Trajet extends Voyage {
 	

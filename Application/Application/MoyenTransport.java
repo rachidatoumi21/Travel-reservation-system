@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Section.Section;
+
 public abstract class MoyenTransport {
 
 	private String id;

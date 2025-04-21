@@ -1,5 +1,8 @@
 package Application;
 
+import Section.DispositionType;
+import Section.SectionAvion;
+import Section.SectionAvionType;
 
 public class Avion extends MoyenTransport {
     

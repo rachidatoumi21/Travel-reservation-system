@@ -1,7 +1,8 @@
 package Application;
 import java.time.LocalDateTime;
 
-import Logiciel.*;
+
+import Users.Visiteur;
 
 public class Vol extends Voyage {
 

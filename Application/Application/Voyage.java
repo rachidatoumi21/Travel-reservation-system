@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import Logiciel.Visiteur;
+import Section.Arrangement;
+import Users.Visiteur;
 /**
  * Type de voyage: Vol, itineraire, trajet
  */

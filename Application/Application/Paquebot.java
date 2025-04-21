@@ -1,5 +1,8 @@
 package Application;
 
+import Section.SectionPaquebot;
+import Section.SectionPaquebotType;
+
 public class Paquebot extends MoyenTransport {
     public Paquebot(Compagnie compagnie) {
         super(compagnie);

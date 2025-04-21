@@ -1,5 +1,4 @@
 package Application;
-import Logiciel.*;
 
 public abstract class Etablissement {
 

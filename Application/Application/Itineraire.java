@@ -2,7 +2,8 @@ package Application;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import Logiciel.*;
+
+import Users.Visiteur;
 
 public class Itineraire extends Voyage {
 
