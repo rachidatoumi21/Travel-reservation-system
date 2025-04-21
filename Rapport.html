@@ -273,7 +273,7 @@
         </table>
         
         <h1 class="box">Diagramme de classe du devoir 2</h1>
-        <img src="./Design/DiagramClass.svg" alt="diagramme de classe logiciel">
+        <img src="./Design/Images Rapport/DiagramClass.svg" alt="diagramme de classe logiciel">
         <h3>Diagrammes de séquence</h3>
         <div class="mx-5">
             <p>Par Vi</p>
@@ -295,17 +295,34 @@
         <h3>Diagramme de paquets</h3>
         <br>
         <br>
-        <img src="./Design/DiagramPackage.svg" alt="Diagramme de paquets">
+        <img src="./Design/Images Rapport/Diagramme_de_paquets.svg" alt="Diagramme de paquets">
         <br>
         <br>
         <h1 class="box">Diagramme de classe Révisé</h1>
-        <img src="./Design/Diagramme de classe logiciel.svg" alt="diagramme de classe logiciel">
+        <h2>Diagramme pour le paquet Paiement </h2>
+        <img src="./Design/Images Rapport/Paiement.svg" alt="diagramme de classe logiciel pour paquet Paiement">
+        <br><br><hr>
+        <h2>Diagramme pour le paquet PatronCommande </h2>
+        <img src="./Design/Images Rapport/PatronCommande.svg" alt="diagramme de classe logiciel pour paquet PatronCommande">
+        <br><br><hr>
+        <h2>Diagramme pour le paquet Reservation </h2>
+        <img src="./Design/Images Rapport/Reservation.svg" alt="diagramme de classe logiciel pour paquet Reservation">
+        <br><br><hr>
+        <h2>Diagramme pour le paquet Section </h2>
+        <img src="./Design/Images Rapport/Section.svg" alt="diagramme de classe logiciel pour paquet Section">
+        <br><br><hr>
+        <h2>Diagramme pour le paquet Users </h2>
+        <img src="./Design/Images Rapport/Users.svg" alt="diagramme de classe logiciel pour paquet Users">
+        <br><br><hr>
+        <h2>Diagramme pour le paquet Application </h2>
+        <img src="./Design/Images Rapport/Application.svg" alt="diagramme de classe logiciel pour paquet Application">
+
         <h1 class="box">Tâche 1: Patrons de conception</h1>
         <div>
             <h3>Patron de fabrique ET Singleton</h3>
             <h4>Diagramme de classe</h4>
             <p>Situé dans le côté gauche du diagramme de classe.</p>
-            <img src="./Design/Diagramme_classe_patron_fabrique.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
+            <img src="./Design/Images Rapport/Diagramme_classe_patron_fabrique.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
             <h4>Diagramme de Séquence</h4>
             <img src="./Design/SequenceDiagrams/Patron Fabrique incluant singleton.svg" alt="Diagramme de séquence pour patron de fabrique et singleton" class="img-fluid">
             <p>Nous avons utilisé la variante Méthode de fabrication. Car nous n'avons pas de combinaisons de familles pour les entités de base dans notre application.</p>
@@ -327,22 +344,22 @@
             <h3>Patron de commande</h3>
             <h4>Diagramme de classe</h4>
             <p>Situé dans le côté droit du diagramme de classe.</p>
-            <img src="./Design/Diagramme_classe_patron_commande.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
+            <img src="./Design/Images Rapport/Diagramme_classe_patron_commande.png" alt="diagramme de classe patron de fabrique" class="img-fluid">
             <h4>Diagramme de Séquence</h4>
             <img src="./Design/SequenceDiagrams/Patron de Commande Modification Dates de voyage.svg" alt="image du graphe d'accessibilité" class="img-fluid">
             <p>On a appliqué le Patron de commande pour les tâches de modification et de suppression de chaque type d'entité. 
                 La variante utilisée est le Undo-Redo qui permet de nous assurer de pouvoir revenir en arrière et de pouvoir annuler une opération effectuée.
             </p>
             <p>Vue que c'est seulement un Administrateur qui peut effectuer ses tâches, c'est le AdminView qui est l'invoquateur de ses commandes.</p>
-
+            <br><br><hr>
             <h3>Patron de observateur ET visiteur</h3>
             <h4>Diagramme de classe</h4>
             <p>Situé dans le côté droite/milieu du diagramme de classe.</p>
-            <img src="./Design/Diagramme_classe_patron_observateur_visiteur.png" alt="Diagramme de classe patron de observateur et visiteur" class="img-fluid">
+            <img src="./Design/Images Rapport/Diagramme_classe_patron_observateur_visiteur.png" alt="Diagramme de classe patron de observateur et visiteur" class="img-fluid">
             <h4>Diagramme de séquence du patron observateur</h4>
-            <img src="Design/Diagramme_sequence_patron_observateur_CreationVol.png" alt="Diagramme de séquence pour patron de observateur" class="img-fluid">
+            <img src="Design/Images Rapport/Diagramme_sequence_patron_observateur_CreationVol.png" alt="Diagramme de séquence pour patron de observateur" class="img-fluid">
             <h4>Diagramme de séquence du patron visiteur</h4>
-            <img src="Design/diagramme_sequence_patron_visiteur_ClientAfficherVol.png" alt="Diagramme de séquence pour patron de visiteur" class="img-fluid">
+            <img src="Design/Images Rapport/diagramme_sequence_patron_visiteur_ClientAfficherVol.png" alt="Diagramme de séquence pour patron de visiteur" class="img-fluid">
             <p>
                 Nous avons implémenté le patron <em>Observateur</em> pour découpler le modèle de données
                 (<code>Database</code>) des vues (<code>AdminView</code> et <code>ClientView</code>).
@@ -366,12 +383,13 @@
                 <code>Visiteur</code> (<code>AdminView</code> et <code>ClientView</code>) fournissent
                 leur propre algorithme de formatage.
             </p>
+            <br><br>
+            <hr>
               <h3>Patron d'état</h3>
             <h4>Diagramme de classe</h4>
-            
-            <img src="./" alt="Diagramme de classe patron d'état" class="img-fluid">
+        
             <h4>Diagramme de séquence du patron État</h4>
-            <img src="https://github.com/Athavan2/DM3-IFT3911/blob/main/Design/SequenceDiagrams/Sequence%20Diagram-patron%20d'etat.jpg" alt="Diagramme de séquence pour patron d'état" class="img-fluid">
+            <img src="./Design/SequenceDiagrams/Sequence Diagram-patron d'etat.jpg" alt="Diagramme de séquence pour patron d'état" class="img-fluid">
             <p>
                 Nous avons intégré Le patron de conception d'état au système de réservation pour gérer les différents états d’un Siege (Libre, Réservé, Occupé) 
                 rendant ainsi la gestion des états d’un siège plus flexible et maintenable.
