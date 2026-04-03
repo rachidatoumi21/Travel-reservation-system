@@ -110,7 +110,7 @@ Cette structure favorise :
 
 ---
 
-## 🧠 Concepts logiciels mis en pratique
+### **🧠 Concepts logiciels mis en pratique**
 
 - Encapsulation
 - Héritage
