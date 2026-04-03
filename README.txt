@@ -1,11 +1,5 @@
 # ✈️🚢🚆 Système de Réservation de Voyages
 
-![Java](https://img.shields.io/badge/Java-POO-orange?style=for-the-badge&logo=java)
-![UML](https://img.shields.io/badge/UML-Mod%C3%A9lisation-blue?style=for-the-badge)
-![Design Patterns](https://img.shields.io/badge/Design%20Patterns-DM3-success?style=for-the-badge)
-![IFT3911](https://img.shields.io/badge/IFT3911-Analyse%20et%20conception%20des%20logiciels-purple?style=for-the-badge)
-![Université de Montréal](https://img.shields.io/badge/UdeM-Projet%20acad%C3%A9mique-red?style=for-the-badge)
-
 > Projet réalisé dans le cadre du cours **IFT3911 – Analyse et conception des logiciels** à l’**Université de Montréal**.  
 > Ce système de réservation prend en charge les voyages **aériens**, **navals** et **ferroviaires**, et a été développé progressivement à travers **DM1, DM2 et DM3**.
 
@@ -13,18 +7,18 @@
 
 ## 📚 Table des matières
 
-- [📌 Description](#-description)
-- [🎯 Objectifs](#-objectifs)
-- [🧩 Évolution du projet](#-évolution-du-projet)
-- [🏗️ Architecture du projet](#️-architecture-du-projet)
-- [🧠 Concepts et patrons de conception](#-concepts-et-patrons-de-conception)
-- [⚙️ Fonctionnalités principales](#️-fonctionnalités-principales)
-- [🛠️ Technologies utilisées](#️-technologies-utilisées)
-- [▶️ Exécution du projet](#️-exécution-du-projet)
-- [📸 Captures et diagrammes](#-captures-et-diagrammes)
-- [👥 Équipe](#-équipe)
-- [📚 Contexte académique](#-contexte-académique)
-- [🚀 Valeur du projet](#-valeur-du-projet)
+- [ Description](#-description)
+- [ Objectifs](#-objectifs)
+- [ Évolution du projet](#-évolution-du-projet)
+- [ Architecture du projet](#️-architecture-du-projet)
+- [ Concepts et patrons de conception](#-concepts-et-patrons-de-conception)
+- [ Fonctionnalités principales](#️-fonctionnalités-principales)
+- [ Technologies utilisées](#️-technologies-utilisées)
+- [ Exécution du projet](#️-exécution-du-projet)
+- [Captures et diagrammes](#-captures-et-diagrammes)
+- [ Équipe](#-équipe)
+- [ Contexte académique](#-contexte-académique)
+- [ Valeur du projet](#-valeur-du-projet)
 
 ---
 
