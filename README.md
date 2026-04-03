@@ -106,11 +106,12 @@ Cette structure favorise :
 - la séparation des responsabilités
 - la modularité
 - la maintenabilité
-- l’extensibilité du système
+- l’extensibilité du système 
+```
 
 ---
 
-### **🧠 Concepts logiciels mis en pratique**
+### 🧠 Concepts logiciels mis en pratique
 
 - Encapsulation
 - Héritage
@@ -125,7 +126,7 @@ Cette structure favorise :
 
 ## 🏛️ Patrons de conception implémentés
 
-### 1. **Patron de Fabrique**
+### 1. Patron de Fabrique
 Utilisé pour encapsuler la création de plusieurs entités du système, comme :
 - les compagnies
 - les moyens de transport
