@@ -5,7 +5,7 @@
 
 ---
 
-## 📚 Table des matières
+##  Table des matières
 
 - [ Description](#-description)
 - [ Objectifs](#-objectifs)
@@ -22,7 +22,7 @@
 
 ---
 
-## 📌 Description
+##  Description
 
 Ce projet consiste en un **système de réservation de voyages** développé en **Java** selon une approche de **conception orientée objet**.
 
@@ -46,7 +46,7 @@ Ce projet met en pratique :
 
 ---
 
-## 🎯 Objectifs
+##  Objectifs
 
 - Appliquer les principes de la **programmation orientée objet**
 - Concevoir un système logiciel **modulaire** et **extensible**
@@ -56,7 +56,7 @@ Ce projet met en pratique :
 
 ---
 
-## 🧩 Évolution du projet
+##  Évolution du projet
 
 ### **DM1 – Système de Réservation de Voyages**
 Première phase du projet consacrée à l’analyse du problème et à l’identification des fonctionnalités principales :
@@ -89,7 +89,7 @@ Troisième phase consacrée à l’amélioration de l’architecture grâce à l
 
 ---
 
-## 🏗️ Architecture du projet
+##  Architecture du projet
 
 Le projet est organisé en plusieurs paquets/modules :
 
@@ -111,7 +111,7 @@ Cette structure favorise :
 
 ---
 
-### 🧠 Concepts logiciels mis en pratique
+###  Concepts logiciels mis en pratique
 
 - Encapsulation
 - Héritage
@@ -124,7 +124,7 @@ Cette structure favorise :
 
 ---
 
-## 🏛️ Patrons de conception implémentés
+##  Patrons de conception implémentés
 
 ### 1. Patron de Fabrique
 Utilisé pour encapsuler la création de plusieurs entités du système, comme :
@@ -134,28 +134,28 @@ Utilisé pour encapsuler la création de plusieurs entités du système, comme :
 
 Cela permet de centraliser la logique de création et de réduire le couplage.
 
-### 2. **Singleton**
+### 2. Singleton
 Employé avec les générateurs d’identifiants afin d’assurer l’unicité des ID produits dans le système.
 
-### 3. **Patron de Commande**
+### 3. Patron de Commande
 Utilisé pour les opérations administratives de :
 - modification
 - suppression
 
 Une variante **undo/redo** est utilisée afin de pouvoir annuler ou rétablir certaines actions.
 
-### 4. **Patron Observateur**
+### 4. Patron Observateur
 Permet de découpler le modèle de données des vues :
 - mise à jour automatique des vues administratives et client
 - synchronisation lors des changements dans la base de données
 
-### 5. **Patron Visiteur**
+### 5. Patron Visiteur
 Utilisé pour séparer la logique de présentation des objets métier, en particulier pour :
 - l’affichage des vols
 - l’affichage des trajets
 - l’affichage des itinéraires
 
-### 6. **Patron d’État**
+### 6. Patron d’État
 Appliqué à la gestion des états d’un siège, par exemple :
 - libre
 - réservé
@@ -163,7 +163,7 @@ Appliqué à la gestion des états d’un siège, par exemple :
 
 Ce patron facilite la gestion des transitions d’état et réduit la complexité des conditions.
 
-### 7. **Patron Décorateur**
+### 7. Patron Décorateur
 Utilisé pour ajouter dynamiquement des services supplémentaires à une réservation, comme :
 - une assurance
 - des services additionnels
