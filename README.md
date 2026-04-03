@@ -229,8 +229,8 @@ git clone https://github.com/rachidatoumi21/Travel-reservation-system.git
 
 
 ## 👥 Équipe
-Rachida Toumi
-Athavan Pathmanathan
-Le Kinh Vi Phung
+- Rachida Toumi
+- Athavan Pathmanathan
+- Le Kinh Vi Phung
 
 ---
