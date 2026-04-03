@@ -1,8 +1,5 @@
 # README.txt
 
-Le code ne fonctionne pas complètement et ne couvre pas toutes les spécifications, mais il se compile correctement.
-
----
 
 ## Compilation  
 À la racine du dépôt, exécutez les commandes suivantes pour compiler le code du projet :
