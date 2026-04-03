@@ -210,7 +210,7 @@ Ces éléments permettent de mieux comprendre :
 
 ---
 
-## 🛠️ Technologies utilisées
+##  Technologies utilisées
 
 - **Java**
 - **UML**
@@ -220,20 +220,23 @@ Ces éléments permettent de mieux comprendre :
 
 ---
 
-## ▶️ Exécution du projet
+##  Exécution du projet
 
 1. Cloner le dépôt :
 ```bash
-git clone https://github.com/rachidatoumi21/Travel-reservation-system.git
+git clone https://github.com/rachidatoumi21/Travel-reservation-system.git```
 
-⭐ Points forts du projet
-projet complet et progressif sur trois devoirs
-architecture modulaire
-intégration de plusieurs patrons de conception
-modélisation UML détaillée
-application concrète des principes de conception logicielle
+---
+## Points forts du projet
+- projet complet et progressif sur trois devoirs
+- architecture modulaire
+- intégration de plusieurs patrons de conception
+- modélisation UML détaillée
+- application concrète des principes de conception logicielle
 
-👥 Équipe
+---
+
+## 👥 Équipe
 Rachida Toumi
 Athavan Pathmanathan
 Le Kinh Vi Phung
